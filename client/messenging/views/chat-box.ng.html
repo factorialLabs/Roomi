@@ -17,10 +17,12 @@ elem.scrollTop = elem.scrollHeight;
                         <div ng-switch-when="true" class="bubble_user">
                             <p><b>{{userInfo.userName}}</b></p>
                             <p>{{msg.message}}</p>
+                            <p class="time">{{msg.time | date:'hh:mma'}}</p>
                         </div>
                         <div ng-switch-when="false" class="bubble_other">
                             <p><b>{{userInfo.userName}}</b></p>
                             <p>{{msg.message}}</p>
+                            <p class="time">{{msg.time | date:'hh:mma'}}</p>
                         </div>
                     </div>
                 </div>
@@ -45,10 +47,12 @@ elem.scrollTop = elem.scrollHeight;
                         <div ng-switch-when="true" class="bubble_user">
                             <p><b>{{userInfo.userName}}</b></p>
                             <p>{{msg.message}}</p>
+                            <p class="time">{{msg.time | date:'hh:mma'}}</p>
                         </div>
                         <div ng-switch-when="false" class="bubble_other">
                             <p><b>{{userInfo.userName}}</b></p>
                             <p>{{msg.message}}</p>
+                            <p class="time">{{msg.time | date:'hh:mma'}}</p>
                         </div>
                     </div>
                 </div>
