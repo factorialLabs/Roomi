@@ -15,7 +15,14 @@ a, a:hover, a:focus, #login-buttons a{
 }
 
 a.brand-logo{
-    padding-left: 20px;
+    margin-left: 100px;
+}
+
+li.meteor-login{
+    margin-right: 100px;
+}
+a.brand-logo:hover{
+    color: #c9c9c9;
 }
 a.button-collapse{
     padding-left: 5px;

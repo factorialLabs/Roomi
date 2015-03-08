@@ -1,8 +1,8 @@
-angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$routeParams',
-  function($scope, $meteor, $rootScope, $routeParams){
-
-    $scope.groupId = $routeParams.groupId;
-
+angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$stateParams',
+  function($scope, $meteor, $rootScope, $stateParams){
+      //Use stateParams for UI-Router
+    $scope.groupId = $stateParams.groupId;
+    console.log($scope.groupId);
     $scope.page = 1;
     $scope.perPage = 3;
     $scope.sort = { name: 1 };
