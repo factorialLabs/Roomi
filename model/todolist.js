@@ -38,7 +38,7 @@ Meteor.methods({
         var new_todo = {
             name:todoInfo.name,
             checked: false,
-            time: todoInfo.date
+            date: todoInfo.date
         }
         console.log(Todolist.findOne(todolistId));
         todos = Todolist.findOne(todolistId).todos;

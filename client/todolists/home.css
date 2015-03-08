@@ -26,9 +26,7 @@ section.homepage {
     section.homepage table.striped-teal tbody tr:nth-child(odd) {
     background-color: #4DB6AC; }
 
-    label.active{
-      color: #ffffff;
-    }
-
-
-/*# sourceMappingURL=home.css.map */
+.chat_box{
+    max-height: 20vh;
+    overflow-y: scroll;
+}

@@ -1,14 +1,44 @@
-<div ng-repeat="todo in todos[0].todos">
+ <link rel="stylesheet" href="../home.css" media="screen" />
+<section class="homepage container">
+    <div class = "row">
+        <div class = "col s12 l10 offset-l1">
+            <h3>Todo List <span class="new badge" style="color:teal">{{messages[0].messages.length}}</span></h3>
+            <div class = "card white-text">
+                <div class = "card-content">
+                    <table class="striped-teal">
+                        <tr ng-repeat="todo in todos[0].todos" class="msgs">
+                            <td>
+                                <p><b>{{todo.name}}:</b><span style = "text-align: right;">{{todo.date}}</span></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <form class="col s12 l12" ng-show="$root.currentUser">
+                    <div class = "row">
+                    <div class="input-field col s6">
+                        <input ng-model="todoInfo.name" id="todo_name" type="text" class="validate">
+                        <label for="todo_name">Todo Item</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input ng-model="todoInfo.date" id="todo_date" type="text" class="validate">
+                        <label for="todo_date">Todo Item</label>
+                    </div>
+                    </div>
+                    <button ng-click="add(todoInfo); todoInfo='';">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    Current User: {{currentUser}}
+</section>
+
+<!-- <div ng-repeat="todo in todos[0].todos">
     {{todo}}
 </div>
-<form ng-show="$root.currentUser">
+
   <h2>Add a new Todo:</h2>
   <br>
-  <label>Todo</label>
-  <input ng-model="todoInfo.name">
-  <label>Checked</label>
-  <input ng-model="todoInfo.checked">
-  <label>Date</label>
-   <input ng-model="todoInfo.date">
-  <button ng-click="add(todoInfo); todoInfo='';">Submit</button>
+ 
 </form>
+ -->
