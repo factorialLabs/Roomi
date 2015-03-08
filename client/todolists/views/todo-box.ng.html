@@ -1,8 +1,8 @@
  <link rel="stylesheet" href="../home.css" media="screen" />
-<section class="homepage container">
+<section class="todo container">
     <div class = "row">
         <div class = "col s12 l10 offset-l1">
-            <h3>Todo List <span class="new badge" style="color:teal">{{messages[0].messages.length}}</span></h3>
+            <h3>To-Do List <span class="new badge" style="color:teal" ng-show="todos[0].todos">{{todos[0].todos.length}}</span></h3>
             <div class = "card white-text">
                 <div class = "card-content">
                     <table class="striped-teal">
@@ -18,19 +18,18 @@
                     <div class = "row">
                     <div class="input-field col s6">
                         <input ng-model="todoInfo.name" id="todo_name" type="text" class="validate">
-                        <label for="todo_name">Todo Item</label>
+                        <label for="todo_name">Item Title</label>
                     </div>
                     <div class="input-field col s6">
                         <input ng-model="todoInfo.date" id="todo_date" type="text" class="validate">
-                        <label for="todo_date">Todo Item</label>
+                        <label for="todo_date">Date</label>
                     </div>
                     </div>
-                    <button ng-click="add(todoInfo); todoInfo='';">Submit</button>
+                    <button ng-click="add(todoInfo); todoInfo='';" class = "btn btn-primary waves-effect waves-light">Submit<i class="mdi-content-send right"></i></button>
                 </form>
             </div>
         </div>
     </div>
-    Current User: {{currentUser}}
 </section>
 
 <!-- <div ng-repeat="todo in todos[0].todos">
