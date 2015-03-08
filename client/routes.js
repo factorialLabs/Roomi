@@ -63,10 +63,6 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         templateUrl: 'client/messenging/views/chat-box.ng.html',
         controller: 'ChatController'
       })
-      .state('events', {
-        url: '/events',
-        templateUrl: 'client/placeholder/views/coming-soon.ng.html'
-      })
       .state('todoBox',{
         url: '/todo',
         templateUrl: 'client/todolists/views/todo-box.ng.html',
