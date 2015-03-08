@@ -58,6 +58,10 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
          templateUrl: 'client/todolists/views/todolist-register.ng.html',
          controller: 'TodolistController'
       })
+    .state('events', {
+        url: '/events',
+        templateUrl: 'client/placeholder/views/coming-soon.ng.html'
+      })
       .state('chatBox', {
         url: '/chat',
         templateUrl: 'client/messenging/views/chat-box.ng.html',
