@@ -15,23 +15,22 @@ Conversation.allow({
 
 Meteor.methods({
     //Function to publish a message
-    say: function(groupId, msg){
-        check(groupId, String);
+    say: function(msg){
+        //check(Meteor.user().group, String);
         //Find the group by using the groupId
-        var group = Group.findOne(groupId);
-
+        var group = Group.findOne(Meteor.user().group);
         //Check if there is a message
         if(!msg)
             throw new Meteor.Error(404, "There is no message");
         //Check user is login
         if(!this.userId)
             throw new Meteor.Error(403, "You must be logged in to publish a message");
-        //Check if group exists
-        if(!group)
-            throw new Meteor.Error(404, "No such group");
+        //Check if group exists TODO fix this
+        //if(!group)
+        //    throw new Meteor.Error(404, "No such group");
         //Check if the user is in the group
-        if(this.userId.group !== group)
-            throw new Meteor.Error(400, "You are not in the group");
+        //if(Meteor.user().group !== group)
+        //    throw new Meteor.Error(400, "You are not in the group");
 
         //Get the conversation in the group
         var convoId = group.conversationId;
@@ -58,11 +57,12 @@ Meteor.methods({
             );
         }
     },
-    retrieve:function(groupId){
-        check(groupId, String);
+    retrieve:function(){
+        //check(Meteor.user().group, String);
+        console.log(Meteor.user().group);
         //Find the group by using the groupId
         //Need to verify if the Group variable is accessible
-        var group = Group.findOne(groupId);
+        var group = Group.findOne(Meteor.user().group);
         //Check user is login
         if(!this.userId)
             throw new Meteor.Error(403, "You must be logged in to see the conversation");
@@ -70,7 +70,7 @@ Meteor.methods({
         if(!group)
             throw new Meteor.Error(404, "No such group");
         //Check if the user is in the group
-        if(this.userId.group !== group)
+        if(Meteor.user().group !== group)
             throw new Meteor.Error(400, "You are not in the group");
 
         var convoId = group.conversationId;
