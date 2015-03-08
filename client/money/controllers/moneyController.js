@@ -1,4 +1,5 @@
-angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$rootScope', function($scope, $meteor, $rootScope){
+angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$rootScope', 'accountService',
+                                                       function($scope, $meteor, $rootScope, accountService){
 
     //Person object - has a name and money.
     var Person = function (name, id){
