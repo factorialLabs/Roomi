@@ -29,7 +29,6 @@ section.homepage table.striped-teal tbody tr:nth-child(odd) {
 label.active{
     color: #ffffff;
 }
-
 section.homepage .card-teal .input-field{
     border-bottom-color: white;
     box-shadow: white;
@@ -65,6 +64,13 @@ section.homepage .input-field input[type=text]:focus {
 section.homepage textarea.materialize-textarea:focus{
     border-bottom-color: white;
 }
+
 .collection{
     margin: 0 !important;
 }
+
+.other{
+    margin-right: 9px!important;
+    margin-left: 9px!important;
+}
+
