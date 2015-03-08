@@ -29,7 +29,9 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
       })
       .state('landingPage', {
          url: '/landing',
-         templateUrl: 'client/landing/landing.ng.html'})
+         templateUrl: 'client/landing/landing.ng.html',
+         controller: 'HomeController'
+        })
    
       .state('registerUser', {
         url: '/user/register/:groupId',
@@ -46,6 +48,11 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         templateUrl: 'client/accounts/views/user-signin.ng.html',
         controller: 'RegisterController'
       })
+      .state('signout', {
+        url: '/logout',
+        templateUrl: 'client/accounts/views/user-signout.ng.html',
+        controller: 'RegisterController'
+      })
       .state('registerTodolist', {
          url: '/user/todolist/:groupId',
          templateUrl: 'client/todolists/views/todolist-register.ng.html',
@@ -55,6 +62,10 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         url: '/chat',
         templateUrl: 'client/messenging/views/chat-box.ng.html',
         controller: 'ChatController'
+      })
+      .state('events', {
+        url: '/events',
+        templateUrl: 'client/placeholder/views/coming-soon.ng.html'
       })
       .state('todoBox',{
         url: '/todo',
