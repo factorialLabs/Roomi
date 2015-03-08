@@ -1,7 +1,10 @@
 section.messages{
     margin-top: 30px;
+    font-size: 1.5em;
 }
-
+#textarea1{
+    font-size: 1.3em;
+}
 section.messages h3{
     text-align: center;
 }
@@ -13,7 +16,7 @@ section.messages h3{
     border-radius: 5px;
 }
 #chat_box{
-    max-height: 60vh;
+    max-height: 64vh;
     overflow-y: scroll;
 }
 .bubble_user{
@@ -21,11 +24,14 @@ section.messages h3{
     width: 60%;
     min-height: 60px;
     padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
-    background: #43A047;
+    background: #81C784;
     border-radius: 10px;
     float: right;
+    word-wrap:break-word;
 }
 
 .bubble_user:after {
@@ -33,7 +39,7 @@ section.messages h3{
     position: absolute;
     border-style: solid;
     border-width: 15px 0 15px 15px;
-    border-color: transparent #43A047;
+    border-color: transparent #81C784;
     display: block;
     width: 0;
     z-index: 1;
@@ -47,11 +53,14 @@ section.messages h3{
     width: 60%;
     min-height: 60px;
     padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
     background: #80CBC4;
     border-radius: 10px;
     float: left;
+    word-wrap: break-word;
 }
 
 .bubble_other:after
