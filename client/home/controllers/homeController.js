@@ -1,5 +1,14 @@
+angular.module("roomi").controller("HomeController", ['$scope', '$meteor', '$rootScope', 'accountService', '$state', function($scope, $meteor, $rootScope, accountService, $state){
+    accountService.then(function(data){
+        if (data == null){
+            console.log("Go landing");
+            $state.go('landingPage', {}, {});
+        }
 
-angular.module("roomi").controller("HomeController", ['$scope', '$meteor', '$rootScope', function($scope, $meteor, $rootScope){
+        },function(err){
+        console.log(err);
+        $state.go('landingPage', {}, {});
+    });
     $scope.messages = [{user:"Jane", message: "Semi's this Friday, anyone wanna go?"}, {user:"John", message: "Sure, let's go!"}, {user:"Bob", message:"Sure, why not?"}];
     $scope.nextBill = {date:"March 9", cost:"99", person:"Waterloo Hydro"};
     $scope.nextEvent = {date:"March 12", title:"Jane's Birthday Dinner!"};
