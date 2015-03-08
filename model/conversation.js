@@ -19,7 +19,7 @@ Meteor.methods({
         //ConsoleMe.subscribe();
         //check(Meteor.user().group, String);
         //Find the group by using the groupId
-        var group = Group.findOne(Meteor.user().group);
+        var group = Group.findOne(Meteor.user().profile.group);
         //Check if there is a message
         if(!msg)
             throw new Meteor.Error(404, "There is no message");
@@ -30,7 +30,7 @@ Meteor.methods({
         if(!group)
             throw new Meteor.Error(404, "No such group");
         //Check if the user is in the group
-        if(Meteor.user().group !== group._id)
+        if(Meteor.user().profile.group !== group._id)
             throw new Meteor.Error(400, "You are not in the group");
 
         //Get the conversation in the group
@@ -79,7 +79,7 @@ Meteor.methods({
         //check(Meteor.user().group, String);
         //Find the group by using the groupId
         //Need to verify if the Group variable is accessible
-        var group = Group.findOne(Meteor.user().group);
+        var group = Group.findOne(Meteor.user().profile.group);
         //Check user is login
         if(!this.userId)
             throw new Meteor.Error(403, "You must be logged in to see the conversation");
@@ -87,7 +87,7 @@ Meteor.methods({
         if(!group)
             throw new Meteor.Error(404, "No such group");
         //Check if the user is in the group
-        if(Meteor.user().group !== group)
+        if(Meteor.user().profile.group !== group)
             throw new Meteor.Error(400, "You are not in the group");
 
         var convoId = group.conversationId;
