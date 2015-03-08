@@ -5,11 +5,11 @@
         elem.scrollTop = elem.scrollHeight;
     };
 </script>-->
-<section class="homepage container">
+<section class="messages container">
     <div class = "row">
         <div class = "col s12 l10 offset-l1">
-            <h3>New Messages <span class="new badge" style="color:red">{{messages[0].messages.length}}</span></h3>
-            <div class = "card white-text">
+            <h3>New Messages <span class="new badge">{{messages[0].messages.length}}</span></h3>
+            <div class = "card">
                 <div class = "card-content " id="chat_box">
                     <table class="striped">
                         <tr ng-repeat="msg in messages[0].messages"  
