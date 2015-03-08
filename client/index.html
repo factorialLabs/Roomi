@@ -20,10 +20,10 @@
 			</ul>
 			<ul class="side-nav collection" id="mobile-demo">
 				<div class = "profile">
-					<img src = "https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/user.png" style = "float:left;">
-					<h6 ng-bind = "status"></h6>
-					<br>
-					<br>
+					<img src = "https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/64/user.png" style = "float:left;">
+					<!--<h6 ng-bind = "status"></h6>-->
+					<h5 ng-bind="userData.user.profile.name"></h5>
+                    <h6 ng-bind="userData.group.name"></h6>
 				</div>
 				<li><meteor-include src="loginButtons"></meteor-include></li>
 				<li><a href="/">Home</a></li>

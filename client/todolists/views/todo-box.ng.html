@@ -7,7 +7,7 @@
                     <table class="striped">
                         <tr ng-repeat="todo in todos[0].todos" class="msgs">
                             <td>
-                                <p><b>{{todo.name}}:</b> <span>{{todo.date}}</span></p>
+                                <p><input ng-click="toggleChecked($index)" id="check_{{$index}}" style="display: inline-block; "type="checkbox" ng-checked="todo.checked" /><label for="check_{{$index}}"></label> <b>{{todo.name}}:</b> <span>{{todo.date}}</span> </p>
                             </td>
                         </tr>
                     </table>
