@@ -108,8 +108,28 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
               profile: {
                 name: user.name
               }
+        }, function(err){
+            if(!err){
+                //redirect
+                $state.go('registerGroup', {}, {groupId: $stateParams.groupId});
+            }else{
+                alert(err);
+            }
         });
-        //redirect
-        $state.go('registerUser', {}, {groupId: $stateParams.groupId});
+    };
+    $scope.login = function(user){
+        console.log('loggin in', user);
+        Meteor.loginWithPassword(
+            user.email,
+           user.password,
+         function(err){
+            if(!err){
+                //redirect
+                $state.go('home', {}, {});
+            }else{
+                alert(err);
+            }
+        });
+
     };
 }]);
