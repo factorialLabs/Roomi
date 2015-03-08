@@ -46,9 +46,9 @@
                                            ng-change="calculateMoney()">{{person.name}}</label>
                                 </div>
                                 <div class="edit-buttons col m3">
-                                    <a class="btn btn-default fa fa-trash" aria-hidden="true" ng-click="removeFood($index)"></a>
-                                    <a class="btn btn-default fa fa-pencil" aria-hidden="true" ng-hide="item.isEditing" ng-click="editFood($index)"></a>
-                                    <a class="btn btn-default fa fa-check-square" aria-hidden="true" ng-show="item.isEditing" ng-click="saveFood($index)"></a>
+                                    <a class="btn btn-default mdi-action-delete" aria-hidden="true" ng-click="removeFood($index)"></a>
+                                    <a class="btn btn-default mdi-editor-mode-edit" aria-hidden="true" ng-hide="item.isEditing" ng-click="editFood($index)"></a>
+                                    <a class="btn btn-default mdi-action-done" aria-hidden="true" ng-show="item.isEditing" ng-click="saveFood($index)"></a>
                                 </div>
 
                             </td>
@@ -58,9 +58,19 @@
             </div>
 
             <form class = "food-item form-inline" ng-submit = "addFood()">
-                <input class = "form-control input col m4 offset-m1" placeholder = "Item Name"  ng-model="newFood.name" type="text">
-                <input class = "form-control input col m4 offset-m1" placeholder = "Cost" ng-model="newFood.cost" type="text">
-                <button class="btn btn-lg btn-primary" type="submit">Add item!</button>
+                <div class = "input-field col m4 offset-m1">
+                    <i class="mdi-action-description prefix"></i>
+                    <input class = "form-control input " id="name" ng-model="newFood.name" type="text">
+                    <label for="name">Item Name</label>
+                </div>
+                <div class = "input-field col m4 offset-m1">
+                    <i class="mdi-editor-attach-money prefix"></i>
+                    <input class = "form-control input " id="cost" ng-model="newFood.cost" type="text">
+                    <label for="name">Cost</label>
+                </div>
+
+
+                <button class="btn btn-lg btn-primary waves-effect waves-light" type="submit">Add item!</button>
             </form>
         </section>
     </div>
