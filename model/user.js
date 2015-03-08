@@ -2,7 +2,7 @@ Meteor.methods({
     set_status: function (status) {
         check(status, String);
         if(status == null){
-            status = "Online";
+            status = "Away";
         }
         Meteor.users.update(Meteor.userId(), { $set: { 'profile.status': status}});
     },
@@ -18,6 +18,9 @@ Meteor.methods({
     updateBalance: function(payer, payee){
         Meteor.users.remove({_id:payee._id});
         Meteor.users.insert(payee);
+        Meteor.users.remove({_id:payer._id});
+        Meteor.users.insert(payer);
+
         return [payer, payee];
     }
 });

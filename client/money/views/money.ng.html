@@ -8,6 +8,8 @@
                         <div class = "roommate col-xs-8 col-md-8">
                             <p class = "roommate-name">{{person.name}} - ${{person.money}}
                             </p>
+                            <p class = "roommate-balance" ng-show="person.balance">Balance: ${{person.balance}}</p>
+                            <p class = "roommate-balance" ng-hide="person.balance">No balance!</p>
                         </div>
                     </div>
                 </div>

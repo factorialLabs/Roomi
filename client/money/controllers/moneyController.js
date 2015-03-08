@@ -2,9 +2,10 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
                                                        function($scope, $meteor, $rootScope, accountService){
 
     //Person object - has a name and money.
-    var Person = function (name, id){
+    var Person = function (name, id, balance){
         this.name = name;
         this.id = id;
+        this.balance = balance;
         this.money = "0.00";
 
     }
@@ -32,11 +33,18 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
                 // Find roommates
                 $meteor.call("findRoommates", $scope.groupId).then(
                     function(roommates){
+                        //console.log(roommates);
                         $scope.roommates = [];
+                        var balance;
                         for (var i = 0; i < roommates.length; i++){
-                            $scope.roommates.push(new Person(roommates[i].emails[0].address, roommates[i]._id));
+                            for (var j = 0; j < roommates[i].profile.balance.length; j++){
+                                if (roommates[i].profile.balance && roommates[i].profile.balance[j].user == $scope.currentUser._id){
+                                    balance = roommates[i].profile.balance[j].balance;
+                                }
+                            }
+                            $scope.roommates.push(new Person(roommates[i].emails[0].address, roommates[i]._id, balance));
                         }
-                        console.log($scope.roommates);
+                        //console.log($scope.roommates);
                     });
 
             };
@@ -63,14 +71,12 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
 
                     //Balance doesn't exist.
                     if (!payee.profile.balance){
-                        payee.profile.balance = [{user:payer._id, balance:parseFloat(money)}];
-                        console.log(payee);
-                        $meteor.call("updateBalance", payer, payee).then(
-                        function(people){
-                            console.log(people);
-                        });
-                        return;
+                        payee.profile.balance = [];
                     }
+                    if (!payer.profile.balance){
+                        payer.profile.balance = [];
+                    }
+
                     var index = -1;
 
                     for (var i = 0; i < payee.profile.balance.length; i++){
@@ -86,11 +92,30 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
                     else{
                         payee.profile.balance[index].balance += parseFloat(money);
                     }
-                    console.log(payee);
 
+                    //Redo for payer's side
+                    index = -1;
+
+                    for (var i = 0; i < payer.profile.balance.length; i++){
+                        if (payer.profile.balance[i].user == payee._id){
+                            index = i;
+                        }
+                    }
+                    // Balance exists, this payer doesn't
+                    if (index == -1){
+                        payer.profile.balance.push({user: payee._id, balance:-1*parseFloat(money)});
+                    }
+                    //Balance exists, payer does too.
+                    else{
+                        payer.profile.balance[index].balance -= parseFloat(money);
+                    }
+
+                    // Update the balances on the server side.
                     $meteor.call("updateBalance", payer, payee).then(
                     function(people){
                         console.log(people);
+                        $scope.getRoommates();
+                        $scope.food = [];
                     })
                 });
             }
