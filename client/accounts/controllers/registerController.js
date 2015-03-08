@@ -1,5 +1,5 @@
-angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$stateParams',
-  function($scope, $meteor, $rootScope, $stateParams){
+angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$stateParams', '$state',
+  function($scope, $meteor, $rootScope, $stateParams, $state){
       //Use stateParams for UI-Router
     $scope.groupId = $stateParams.groupId;
     console.log($scope.groupId);
@@ -105,7 +105,11 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
         Accounts.createUser({
             email: user.email,
             password: user.password,
-            'profile.name': user.name
+              profile: {
+                name: user.name
+              }
         });
+        //redirect
+        $state.go('registerUser', {}, {groupId: $stateParams.groupId});
     };
 }]);
