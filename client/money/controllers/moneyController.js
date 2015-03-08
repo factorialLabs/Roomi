@@ -33,12 +33,18 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
                     function(roommates){
                         $scope.returnedRoommates = roommates;
                         console.log($scope.returnedRoommates);
+                        $scope.roommates = [];
+                        for (var i = 0; i < $scope.returnedRoommates.length; i++){
+                            console.log($scope.returnedRoommates[i]);
+                            $scope.roommates.push(new Person($scope.returnedRoommates[i].emails[0].address, $scope.returnedRoommates._id));
+                        }
+                        console.log($scope.roommates);
                     });
+
             };
             $scope.getRoommates();
         });
 
-    $scope.roommates = [new Person("Jane", "bbb"), new Person("John", "aaa")];
     $scope.food = [];
     $scope.newName;
     $scope.newFood;
