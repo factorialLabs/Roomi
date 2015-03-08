@@ -1,0 +1,14 @@
+<div ng-repeat="todo in todos[0].todos">
+    {{todo}}
+</div>
+<form ng-show="$root.currentUser">
+  <h2>Add a new Todo:</h2>
+  <br>
+  <label>Todo</label>
+  <input ng-model="todoInfo.name">
+  <label>Checked</label>
+  <input ng-model="todoInfo.checked">
+  <label>Date</label>
+   <input ng-model="todoInfo.date">
+  <button ng-click="add(todoInfo); todoInfo='';">Submit</button>
+</form>

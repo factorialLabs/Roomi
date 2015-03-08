@@ -1,21 +1,19 @@
-angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$rootScope','accountService',
+angular.module("roomi").controller("TodoController", ['$scope', '$meteor', '$rootScope','accountService',
     function($scope, $meteor, $rootScope, accountService){
-        //console.log(accountService);
+        console.log(accountService);
+
         accountService.then(function(data){
-            //console.log(data);
-            $scope.messages = $meteor.collection(function() {
-                var convo = Conversation.find({_id: data.group.conversationId}, {
-                    sort : $scope.getReactively('sort')});
-                  return convo;
-            });
+          $scope.todos = $meteor.collection(function() {
+            return Todolist.find({_id:data.group.todolist});
+          });
+
         },function(err){
 
         });
 
-
     //subscribe to conversations
     $meteor.autorun($scope, function() {
-      $meteor.subscribe('Conversation', {
+      $meteor.subscribe('Todolist', {
         limit: 10
         //skip: (parseInt($scope.getReactively('page')) - 1) * parseInt($scope.getReactively('perPage')),
        // sort: $scope.getReactively('sort')
@@ -24,9 +22,10 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
 //        $scope.partiesCount = $meteor.object(Counts ,'numberOfParties', false);
 //      });
     });
+
     //method called when the user says something
-    $scope.say = function(message){
-      $meteor.call('say', message).then(
+    $scope.add = function(todoInfo){
+      $meteor.call('add', todoInfo).then(
         function(data){
           console.log('success responding', data);
         },
