@@ -14,8 +14,16 @@ angular.module("roomi").controller("RegisterCtrl", ['$scope', '$meteor', '$rootS
       });
     });
 
+    $scope.group = function(){
+      $meteor.collection(function() {
+          return Group.find({}, {
+            sort : $scope.getReactively('sort')
+          });
+        });
+    };
+
     $meteor.autorun($scope, function() {
-      $meteor.subscribe('parties', {
+      $meteor.subscribe('group', {
         limit: parseInt($scope.getReactively('perPage')),
         skip: (parseInt($scope.getReactively('page')) - 1) * parseInt($scope.getReactively('perPage')),
         sort: $scope.getReactively('sort')
@@ -56,14 +64,15 @@ angular.module("roomi").controller("RegisterCtrl", ['$scope', '$meteor', '$rootS
       return owner;
     };
 
-    $scope.rsvp = function(partyId, rsvp){
-      $meteor.call('rsvp', partyId, rsvp).then(
-        function(data){
-          console.log('success responding', data);
-        },
-        function(err){
-          console.log('failed', err);
-        }
-      );
+    $scope.create_group = function(newGroup){
+        console.log('adding', newGroup);
+        $meteor.call('create_group', newGroup).then(
+            function(data){
+              console.log('success responding', data);
+            },
+            function(err){
+              console.log('failed', err);
+            }
+        );
     };
 }]);

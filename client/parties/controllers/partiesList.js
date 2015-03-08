@@ -55,8 +55,7 @@ angular.module("roomi").controller("PartiesListCtrl", ['$scope', '$meteor', '$ro
 
       return owner;
     };
-
-    $scope.rsvp = function(partyId, rsvp){
+    $scope.submit = function(partyId, rsvp){
       $meteor.call('rsvp', partyId, rsvp).then(
         function(data){
           console.log('success responding', data);
@@ -66,4 +65,5 @@ angular.module("roomi").controller("PartiesListCtrl", ['$scope', '$meteor', '$ro
         }
       );
     };
+
 }]);
