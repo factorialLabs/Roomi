@@ -1,34 +1,67 @@
 section.homepage {
-  text-align: center; }
-  section.homepage span.new.badge {
+    text-align: center; }
+section.homepage span.new.badge {
     width: 60px;
     background-color: white;
     color: #009688; }
-  section.homepage p {
+section.homepage p {
     font-size: 1.3rem; }
-  section.homepage h3 {
+section.homepage h3 {
     margin-top: 10px;
     margin-bottom: 20px; }
-  section.homepage .card-teal {
+section.homepage .card-teal {
     background-color: #009688; }
-  section.homepage .card-light-blue {
+section.homepage .card-light-blue {
     background-color: #03A9F4; }
-    section.homepage .card-cyan {
+section.homepage .card-cyan {
     background-color: #00BCD4; }
-    section.homepage .card-green {
+section.homepage .card-green {
     background-color: #4CAF50; }
-    section.homepage .card-light-green {
+section.homepage .card-light-green {
     background-color: #8BC34A; }
-  section.homepage table.striped-cyan tbody tr:nth-child(odd) {
+section.homepage table.striped-cyan tbody tr:nth-child(odd) {
     background-color: #0097A7; }
-  section.homepage table.striped-light-green tbody tr:nth-child(odd) {
+section.homepage table.striped-light-green tbody tr:nth-child(odd) {
     background-color: #689F38; }
-    section.homepage table.striped-teal tbody tr:nth-child(odd) {
+section.homepage table.striped-teal tbody tr:nth-child(odd) {
     background-color: #4DB6AC; }
 
-    label.active{
-      color: #ffffff;
-    }
+label.active{
+    color: #ffffff;
+}
 
+section.homepage .card-teal .input-field{
+    border-bottom-color: white;
+    box-shadow: white;
+    color:white;
+}
+section.homepage .card-teal .input-field:hover{
+    border-bottom-color: white;
+    box-shadow: white;
+    color:white;
+}
 
-/*# sourceMappingURL=home.css.map */
+section.homepage .card-teal label{
+    color: white;
+}
+
+section.homepage .card-teal label:hover{
+    color: white;
+}
+/* label color */
+section.homepage .input-field label {
+    color: white;
+}
+/* label focus color */
+section.homepage .input-field input[type=text]:focus + label {
+    color: white;
+}
+/* label underline focus color */
+section.homepage .input-field input[type=text]:focus {
+    border-bottom: 1px solid white;
+    box-shadow: 0 1px 0 0 white;
+}
+
+section.homepage textarea.materialize-textarea:focus{
+    border-bottom-color: white;
+}
