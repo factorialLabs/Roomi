@@ -1,5 +1,7 @@
 Meteor.publish("users", function () {
-  return Meteor.users.find({}, {fields: {emails: 1, profile: 1, group: 1, balance: 1}});
+
+    if(!this.userId) return null;
+    return Meteor.users.find(this.userId, {fields: {emails: 1, profile: 1, group: 1}});
 });
 Meteor.users.allow({
     update: function(userId, doc){

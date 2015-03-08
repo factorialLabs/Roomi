@@ -32,12 +32,12 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
       .state('registerUser', {
         url: '/user/register/:groupId',
         templateUrl: 'client/accounts/views/user-register.ng.html',
-        controller: 'RegisterCtrl'
+        controller: 'RegisterController'
       })
       .state('chatBox', {
         url: '/chat',
         templateUrl: 'client/messenging/views/chat-box.ng.html',
-        controller: 'ChatCtrl'
+        controller: 'ChatController'
       });
     $urlRouterProvider.otherwise("/");
   }]);

@@ -1,9 +1,11 @@
-angular.module("roomi").controller("MoneyController", ['$scope', function($scope){
+angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$rootScope', function($scope, $meteor, $rootScope){
 
     //Person object - has a name and money.
-    var Person = function (name){
+    var Person = function (name, id){
         this.name = name;
+        this.id = id;
         this.money = "0.00";
+
     }
 
     //GroceryItem object - has a cost and excludePeople
@@ -17,12 +19,33 @@ angular.module("roomi").controller("MoneyController", ['$scope', function($scope
             this.people[i] = false;
         }
     }
+    $scope.currentUser = $meteor.collection(Meteor.users, false).subscribe('users');
+    $scope.groupId = $scope.currentUser[0].group;
 
-    $scope.roommates = [new Person("Jane"), new Person("John")];
+    console.log($scope.currentUser);
+    console.log($scope.currentUser[0]);
+    console.log($scope.groupId);
+
+    $scope.roommates = [new Person("Jane", "bbb"), new Person("John", "aaa")];
     $scope.food = [];
     $scope.newName;
     $scope.newFood;
 
+
+
+    $scope.getRoommates = function(){
+        console.log("Find roommates");
+        $meteor.call("findRoommates", $scope.groupId).then(
+        function(roommates){
+            $scope.returnedRoommates = roommates;
+            console.log($scope.returnedRoommates);
+        });
+    };
+    $scope.getRoommates();
+
+    $scope.updateBalances = function(){
+
+    };
 
 
     $scope.addFood = function(){
@@ -86,8 +109,6 @@ angular.module("roomi").controller("MoneyController", ['$scope', function($scope
         }
     };
 
-    $scope.updateBalances = function(){
 
-    };
 
 }]);
