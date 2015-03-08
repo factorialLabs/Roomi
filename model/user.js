@@ -10,6 +10,10 @@ Meteor.methods({
         var roommates = Meteor.users.find({'profile.group':groupId}, {fields: {emails: 1, profile: 1, group: 1, balance: 1}}).fetch();
         return roommates;
     },
+    findGroup: function(userId){
+        return Group.findOne({_id:userId});
+    }
+    ,
     getPayPair: function(payerId, payeeId, balanceString){
         var payer = Meteor.users.findOne({_id:payerId});
         var payee = Meteor.users.findOne({_id:payeeId});
