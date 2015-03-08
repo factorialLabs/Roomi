@@ -5,4 +5,5 @@ angular.module("roomi").controller("HomeController", ['$scope', '$meteor', '$roo
     $scope.nextEvent = {date:"March 12", title:"Suite Cleanup"};
     $scope.roommateStatus = [{name:"Jane", status:"Away"}, {name:"John", status:"Home"}, {name:"Bob", status:"Do Not Disturb"}];
     $scope.currentUser = $rootScope.currentUser;
+    console.log($scope.currentUser);
 }]);

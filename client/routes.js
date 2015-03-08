@@ -22,6 +22,11 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
        templateUrl: 'client/parties/views/party-details.ng.html',
        controller: 'PartyDetailsCtrl'
    })
+        .state('transactions', {
+        url: '/transactions',
+        templateUrl: 'client/money/views/money.ng.html',
+        controller: 'MoneyController'
+      })
 
    
       .state('registerUser', {

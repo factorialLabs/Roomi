@@ -72,7 +72,7 @@ Meteor.methods({
                 convoId,
                 {$set:{messages:messages}}
             );
-            
+
         }
     },
     retrieve:function(){
