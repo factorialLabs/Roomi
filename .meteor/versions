@@ -15,6 +15,7 @@ blaze-tools@1.0.3-winr.2
 boilerplate-generator@1.0.3-winr.3
 callback-hook@1.0.3-winr.2
 check@1.0.5-win.0
+d0minikk:materialize-meteor@1.95.1
 dburles:mongo-collection-instances@0.3.3
 ddp@1.0.15-winr.6
 deps@1.0.7-winr.2
