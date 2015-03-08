@@ -1,15 +1,12 @@
 section.messages{
-    margin-top: 5px;
+    margin-top: 30px;
     font-size: 1.5em;
-}
-.big_screen{
-    display: inline;
-}
-.small_screen{
-    display: none;
 }
 #textarea1{
     font-size: 1.3em;
+}
+section.messages h3{
+    text-align: center;
 }
 .brand-logo{
     height:90%;
@@ -20,9 +17,7 @@ section.messages{
     height:100%;
     width:auto;
 }
-section.messages h4{
-    text-align: center;
-}
+
 .msg{
     width: auto;
     height: auto;
@@ -92,51 +87,3 @@ section.messages h4{
     left: -15px;
     top: 60%;
 }
-@media screen and (max-width: 750px){
-
-    .no_padding{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-
-        width: 85% !important;
-    }
-    .bubble_user{
-        width: 75%;
-        right: 15px;
-    }
-    .bubble_other
-    {
-        width: 75%;
-        left: 15px;
-    }
-    section.messages{
-        margin-left: 0px;
-        margin-right: 0px;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-    .big_screen{
-        display: none;
-    }
-    .small_screen{
-        display: block;
-    }
-    .small_form{
-        position: absolute;
-        bottom: 0;
-        z-index: 2;
-    }
-    #small_chat_box{
-        left: 0px;
-        max-height: 75vh;
-        width: 100vw;
-        margin-left: 0px;
-        margin-right: 0px;
-        padding-left: 0px;
-        padding-right: 0px;
-        overflow-y: scroll;
-        overflow-x:hidden;
-    }
-}
-
-
