@@ -1,5 +1,4 @@
 Group = new Meteor.Collection('Group');
-
 Meteor.methods({
     create_group: function (groupInfo) {
         check(groupInfo, Object);

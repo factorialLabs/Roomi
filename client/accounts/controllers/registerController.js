@@ -1,4 +1,4 @@
-angular.module("roomi").controller("RegisterCtrl", ['$scope', '$meteor', '$rootScope',
+angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope',
   function($scope, $meteor, $rootScope){
 
     $scope.page = 1;
