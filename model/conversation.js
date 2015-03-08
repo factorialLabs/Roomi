@@ -20,10 +20,6 @@ Meteor.methods({
         //check(Meteor.user().group, String);
         //Find the group by using the groupId
         var group = Group.findOne(Meteor.user().group);
-        console.log(Meteor.userId);
-        console.log(Meteor.user());
-        console.log(Meteor.user().group);
-        console.log(group);
         //Check if there is a message
         if(!msg)
             throw new Meteor.Error(404, "There is no message");
@@ -40,11 +36,13 @@ Meteor.methods({
         //Get the conversation in the group
         var convoId;
         var conversation = [];
-        var messages= [];
+        //var messages= [];
         if(group.conversationId){
+            console.log("got an convo");
             convoId = group.conversationId;
             conversation = Conversation.findOne(convoId);
         }
+        console.log(conversation);
 
 
         var message = {
@@ -53,7 +51,8 @@ Meteor.methods({
             time: new Date()
         }
         //conversation is empty. Create a convo and create message and publish
-        if(!conversation){
+        if(!group.conversationId){
+            console.log("convo is empty");
             var new_conversation = {
                 messages: []
             }
@@ -64,13 +63,21 @@ Meteor.methods({
 
         }
         else{
-            if(conversation.messages)
-                messages = conversation.messages;
+            console.log("convo is not empty");
+            console.log(conversation);
+            console.log(convoId);
+            //console.log(message);
+            if(!conversation.messages){
+                console.log("message is empty")
+                messages = [];
+            }
             messages.push(message);
+            console.log(messages);
             Conversation.update(
                 convoId,
-                {$set:{"conversation.messages":messages}}
+                {$set:{"messages":messages}}
             );
+            
         }
     },
     retrieve:function(){
