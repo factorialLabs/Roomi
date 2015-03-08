@@ -10,8 +10,7 @@ Meteor.methods({
         function(err,group){
             if(!err){
                 //automatically associate  current user to the group
-                console.log(Meteor.userId());
-                Meteor.users.update(Meteor.userId(), { $set: { group: group }});
+                Meteor.users.update(Meteor.userId(), { $set: { 'profile.group': group }});
             }
         })
     },
@@ -22,11 +21,11 @@ Meteor.methods({
         var group = Group.findOne(groupId);
         if (!group)
           throw new Meteor.Error(404, "No such group");
-        console.log(Meteor.user().group);
-        if (_.contains(groupId, Meteor.user().group))
+        console.log(Meteor.user().profile.group);
+        if (_.contains(groupId, Meteor.user().profile.group))
           throw new Meteor.Error(400, "Already in group");
         //Ready to join!
-        Meteor.users.update(Meteor.userId(), { $set: { group: groupId }});
+        Meteor.users.update(Meteor.userId(), { $set: { 'profile.group': groupId }});
         return group;
   }
 });
