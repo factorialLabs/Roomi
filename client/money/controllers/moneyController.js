@@ -19,12 +19,24 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
             this.people[i] = false;
         }
     }
-    $scope.currentUser = $meteor.collection(Meteor.users, false).subscribe('users');
-    $scope.groupId = $scope.currentUser[0].group;
 
-    console.log($scope.currentUser);
-    console.log($scope.currentUser[0]);
-    console.log($scope.groupId);
+    var getCurrentUser = $rootScope.currentUserPromise.then(
+        function(currentUser){
+            $scope.currentUser = currentUser;
+            $scope.groupId = currentUser.profile.group;
+            console.log($scope.currentUser);
+            console.log($scope.groupId);
+
+            $scope.getRoommates = function(){
+                console.log("Find roommates");
+                $meteor.call("findRoommates", $scope.groupId).then(
+                    function(roommates){
+                        $scope.returnedRoommates = roommates;
+                        console.log($scope.returnedRoommates);
+                    });
+            };
+            $scope.getRoommates();
+        });
 
     $scope.roommates = [new Person("Jane", "bbb"), new Person("John", "aaa")];
     $scope.food = [];
@@ -33,15 +45,7 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
 
 
 
-    $scope.getRoommates = function(){
-        console.log("Find roommates");
-        $meteor.call("findRoommates", $scope.groupId).then(
-        function(roommates){
-            $scope.returnedRoommates = roommates;
-            console.log($scope.returnedRoommates);
-        });
-    };
-    $scope.getRoommates();
+
 
     $scope.updateBalances = function(){
 
