@@ -9,3 +9,14 @@
 div .profile{
 	color: #000000;
 }
+
+a, a:hover, a:focus, #login-buttons a{
+    text-decoration: none;
+}
+
+a.brand-logo{
+    padding-left: 20px;
+}
+a.button-collapse{
+    padding-left: 5px;
+}
