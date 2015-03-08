@@ -1,11 +1,17 @@
-/*angular.module("roomi").factory('accountService', ['$meteor', function($meteor) {
-    var user = $meteor.collection(Meteor.users, false).subscribe('users');
-    //var group = Group.findOne(user[0].group);
-    console.log(user[0]);
-    console.log(group);
-    var userInfo = {
-        user: user,
-        group: group
-    };
-    return userInfo;
- }]);*/
+angular.module("roomi").factory('accountService', ['$rootScope', '$meteor', '$q', function($rootScope,$meteor,$q) {
+
+    return $q(function(resolve, reject) {
+        $rootScope.currentUserPromise.then(function(user){
+        var group = Group.findOne(user.profile.group);
+        var userInfo = [];
+        userInfo = {
+            user: user,
+            group: group
+        };
+        if(userInfo)
+            resolve(userInfo);
+        else
+            reject();
+        });
+    });
+ }]);
