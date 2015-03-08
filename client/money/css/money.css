@@ -1,0 +1,13 @@
+section.transactions {
+  text-align: center; }
+  section.transactions .btn-group label.btn.active {
+    background-color: #80CBC4; }
+  section.transactions td.buttons div {
+    display: inline-block;
+    padding-right: 5px; }
+  section.transactions td.buttons a {
+    display: inline-block; }
+  section.transactions td.buttons .edit-buttons {
+    float: right; }
+
+/*# sourceMappingURL=money.css.map */

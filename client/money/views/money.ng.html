@@ -1,0 +1,65 @@
+<section class = "container-fluid transactions" ng-cloak>
+    <div class = "row">
+        <section class = "col m3 roommates">
+            <h2 class = "section-header">Roommates</h2>
+            <div class = "roommate card-panel" ng-repeat="person in roommates track by $index">
+                <div class = "regular-display-card" ng-hide="person.isEditing">
+                    <div class = "roommate row">
+                        <div class = "roommate col-xs-8 col-md-8">
+                            <p class = "roommate-name">{{person.name}} - ${{person.money}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class = "col m9 groceries">
+            <h2 class = "section-header">Groceries</h2>
+            <div class = "visible-desktop">
+                <table class = "striped centered responsive-tablefood-item">
+                    <thead>
+                        <tr ng-if="food.length">
+                            <th>Item Name</th>
+                            <th>Cost</th>
+                            <th>Excluded People</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat = "item in food track by $index">
+                            <td>
+                                <p ng-hide="item.isEditing">{{item.name}}</p>
+                                <input class = "form-control input" placeholder = "Item Name" ng-model="item.editName" type="text" ng-show="item.isEditing">
+                            </td>
+                            <td>
+                                <p ng-hide="item.isEditing">${{item.cost}}</p>
+                                <input class = "form-control input edit-cost" placeholder = "Cost" ng-model="item.editCost" type="text" ng-show="item.isEditing">
+                            </td>
+                            <td class = "buttons">
+
+                                <div class="btn-group col m9">
+                                    <label class="btn btn-default roommate-button" ng-model="item.people[$index]" btn-checkbox ng-repeat="person in roommates track by $index"
+                                           ng-change="calculateMoney()">{{person.name}}</label>
+                                </div>
+                                <div class="edit-buttons col m3">
+                                    <a class="btn btn-default fa fa-trash" aria-hidden="true" ng-click="removeFood($index)"></a>
+                                    <a class="btn btn-default fa fa-pencil" aria-hidden="true" ng-hide="item.isEditing" ng-click="editFood($index)"></a>
+                                    <a class="btn btn-default fa fa-check-square" aria-hidden="true" ng-show="item.isEditing" ng-click="saveFood($index)"></a>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <form class = "food-item form-inline" ng-submit = "addFood()">
+                <input class = "form-control input col m4 offset-m1" placeholder = "Item Name"  ng-model="newFood.name" type="text">
+                <input class = "form-control input col m4 offset-m1" placeholder = "Cost" ng-model="newFood.cost" type="text">
+                <button class="btn btn-lg btn-primary" type="submit">Add item!</button>
+            </form>
+        </section>
+    </div>
+</section>
+
