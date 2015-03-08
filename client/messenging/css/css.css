@@ -5,6 +5,15 @@ section.messages{
 section.messages h3{
     text-align: center;
 }
+.brand-logo{
+    height:90%;
+    width:auto;
+    margin:5px;
+}
+.logo{
+    height:100%;
+    width:auto;
+}
 .msgs{
     width: auto;
     height: auto;
