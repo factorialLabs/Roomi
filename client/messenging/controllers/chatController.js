@@ -1,7 +1,9 @@
 angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$rootScope',
     function($scope, $meteor, $rootScope){
-    $scope.user = $meteor.collection(Meteor.users, false).subscribe('users');
-        console.log($scope.users);
+    $rootScope.currentUserPromise.then(function(user){
+        console.log(user);
+    });
+
     $scope.messages = $meteor.collection(function() {
       return Conversation.find({_id:$scope.user.group.conversationId}, {
         sort : $scope.getReactively('sort')
