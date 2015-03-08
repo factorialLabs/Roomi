@@ -115,7 +115,8 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
         }, function(err){
             if(!err){
                 //redirect
-                $state.go('registerGroup', {}, {groupId: $stateParams.groupId});
+                //$state.go('registerGroup', {}, {groupId: $stateParams.groupId});
+                window.location.assign('/group/register/');
             }else{
                 alert(err);
             }
@@ -138,7 +139,7 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
 
     };
     $scope.signout = function(){
-        console.log('lnogging out');
+        console.log('nogging out');
         Meteor.logout(function(error) {
          // $state.go('landingPage', {}, {});
             window.location.assign('/');
