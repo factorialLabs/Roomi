@@ -68,3 +68,6 @@ section.homepage textarea.materialize-textarea:focus{
     margin-right: 9px!important;
     margin-left: 9px!important;
 }
+.readjust{
+    width: 70%!important;
+}

@@ -20,7 +20,7 @@
                         <form class="col s12 l12" ng-show="$root.currentUser">
                             <div class="row other" style="margin-left:9px; margin-right:20px">
                                 <div class="input-field col s12 l12 light-green darken-2 black-text">
-                                    <div class="col s11 l11">
+                                    <div class="col s11 l11 adjust">
                                         <textarea id="textarea1" class="materialize-textarea white-text" ng-model="message"></textarea>
                                     </div>
                                     <div class="col s1 l1 valign-wrappe white-text" style = "padding-top: 10px; padding-right: 5px" >
@@ -71,11 +71,11 @@
 
                             <form class="col s12 l12" ng-show="$root.currentUser">
                                 <div class = "row">
-                                    <div class="input-field col s5 white-text">
+                                    <div class="input-field col s5 white-text readjust">
                                         <input ng-model="todoInfo.name" id="todo_name" type="text" class="validate">
                                         <label for="todo_name">Todo Item</label>
                                     </div>
-                                    <div class="input-field col s5 white-text">
+                                    <div class="input-field col s5 white-text readjust">
                                         <input ng-model="todoInfo.date" id="todo_date" type="text" class="validate">
                                         <label for="todo_date">Date</label>
                                     </div>

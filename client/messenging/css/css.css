@@ -2,6 +2,9 @@ section.messages{
     margin-top: 5px;
     font-size: 1.5em;
 }
+.adjust{
+    width: 85% !important;
+}
 .time{
     font-size: 0.6em;
     text-align: right;
@@ -27,7 +30,6 @@ section.messages h3{
     height:100%;
     width:auto;
 }
-
 .msg{
     width: auto;
     height: auto;
@@ -137,7 +139,7 @@ section.messages h3{
     }
     #small_chat_box{
         left: 0px;
-        max-height: 72vh;
+        max-height: 68vh;
         width: 100vw;
         margin-left: 0px;
         margin-right: 0px;
@@ -146,5 +148,25 @@ section.messages h3{
         overflow-y: scroll;
         overflow-x:hidden;
         color:#606060!important;
+    }
+     @media screen and (max-height:900px){
+        #small_chat_box{
+            max-height: 60vh;
+        }
+     }
+    @media screen and (max-height:740px){
+        #small_chat_box{
+            max-height: 50vh;
+        }
+    }
+    @media screen and (max-height:540px){
+        #small_chat_box{
+            max-height: 40vh;
+        }
+    }
+     @media screen and (max-height:400px){
+        #small_chat_box{
+            max-height: 35vh;
+        }
     }
 }
