@@ -1,14 +1,13 @@
 <section class = "container-fluid transactions" ng-cloak>
     <div class = "row">
-        <section class = "col m3 roommates">
+        <section class = "col s12 m3 roommates">
             <h2 class = "section-header">Roommates</h2>
             <div class = "roommate card-panel" ng-repeat="person in roommates track by $index">
                 <div class = "regular-display-card">
                     <div class = "roommate row">
                         <div class = "roommate col-xs-8 col-md-8">
-                            <p class = "roommate-name">{{person.name}} - ${{person.money}}
-                            </p>
-                            <p class = "roommate-balance" ng-show="person.balance" ng-hide="person.id == currentUser._id">Balance: ${{person.balance}}</p>
+                            <p class = "roommate-name">{{person.name}} - ${{person.money}}</p>
+                            <p class = "roommate-balance" ng-hide="person.id == currentUser._id">Balance: ${{person.balance}}</p>
                             <p class = "roommate-balance" ng-hide="person.balance">No balance!</p>
                         </div>
                     </div>
@@ -18,8 +17,55 @@
         </section>
 
 
-        <section class = "col m9 groceries">
+        <section class = "col s12 m9 groceries">
             <h2 class = "section-header">Groceries</h2>
+            <!-- Mobile View -->
+            <div class = "food-item visible-mobile">
+                <div class = "food card-panel" ng-repeat="item in food track by $index">
+                    <div class = "not-editing" ng-hide="item.isEditing">
+                        <div class = "row">
+
+                            <div class = "col-xs-8">
+                                <p>{{item.name}}</p>
+                            </div>
+                            <div class = "col-xs-4">
+
+
+                                <a class="btn btn-default mdi-action-delete" aria-hidden="true" ng-click="removeFood($index)"></a>
+                                <a class="btn btn-default mdi-editor-mode-edit" aria-hidden="true" ng-hide="item.isEditing" ng-click="editFood($index)"></a>
+                                <a class="btn btn-default mdi-action-done" aria-hidden="true" ng-show="item.isEditing" ng-click="saveFood($index)"></a>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class = "col-xs-6">
+                                <p>${{item.cost}}</p>
+                            </div>
+                            <div class = "col-xs-6">
+                                <select class = "form-control tax-select" ng-model="item.taxRate" ng-change="calculateMoney()">
+                                    <option class = "form-control" value = "0">0%</option>
+                                    <option class = "form-control" value = "0.05">5%</option>
+                                    <option class = "form-control" value = "0.08">8%</option>
+                                    <option class = "form-control" value = "0.13">13%</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class="btn-group">
+                                <label class="btn btn-default roommate-button" ng-model="item.people[$index]" btn-checkbox ng-repeat="person in roommates track by $index"
+                                       ng-change="calculateMoney()">{{person.name}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "editing" ng-show="item.isEditing">
+                        <input class = "form-control input" placeholder = "Item Name" ng-model="item.editName" type="text">
+                        <input class = "form-control input edit-cost" placeholder = "Cost" ng-model="item.editCost" type="text">
+                        <p>
+                            <a class="btn btn-default glyphicon glyphicon-trash" aria-hidden="true" ng-click="removeFood($index)"></a>
+                            <a class="btn btn-default glyphicon glyphicon-ok" aria-hidden="true" ng-click="saveFood($index)"></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class = "visible-desktop">
                 <table class = "striped centered responsive-tablefood-item">
                     <thead>

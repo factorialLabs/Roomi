@@ -10,4 +10,101 @@ section.transactions {
   section.transactions td.buttons .edit-buttons {
     float: right; }
 
-/*# sourceMappingURL=money.css.map */
+.visible-mobile{
+    display: none !important;
+}
+
+.visible-desktop{
+    display: block !important;
+}
+
+/* For mobile devices only. */
+
+@media screen and (max-width: 768px){
+    .visible-mobile{
+        display:block !important;
+    }
+    .visible-desktop{
+        display: none !important;
+    }
+
+    th, input[type=text], input[type=number], p, .btn-group > .btn, td > a.btn, button.btn, .tax-select, .row .btn{
+        font-size: 1em;
+    }
+
+    h1{
+        font-size: 3em;
+        margin: 0;
+    }
+
+    .section-header{
+        font-size: 2em;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    header{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    body{
+        margin-bottom: 60px;
+    }
+    .food.card-panel{
+        padding: 10px;
+    }
+    .food.card-panel .row{
+        margin-bottom: 10px;
+    }
+    .food.card-panel .row .col-xs-8{
+        height: 34px;
+    }
+    .food.card-panel .row .col-xs-8 p{
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+    .food.card-panel .row .col-xs-6{
+        height: 40px;
+    }
+    .food.card-panel .row .col-xs-6 p{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .food.card-panel .row .col-xs-6 select{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 1;
+        width: 90px;
+    }
+    section.roommates, section.groceries{
+        padding: 0;
+    }
+
+    div.roommate.card-panel, div.food.card-panel{
+        margin: 5px;
+    }
+    form.roommate{
+        margin: 5px;
+    }
+    footer.page-footer{
+        height: 60px;
+        margin: 0;
+        padding-top: 5px;
+    }
+    footer.page-footer .container{
+        padding: 0;
+    }
+    footer.page-footer .footer-copyright{
+        line-height: normal;
+        vertical-align: middle;
+        height: 20px;
+        padding-top: 2px;
+    }
+
+    footer.page-footer .footer-copyright p{
+        margin: 0;
+    }
+
+}

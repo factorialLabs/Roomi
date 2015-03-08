@@ -29,7 +29,9 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
       })
       .state('landingPage', {
          url: '/landing',
-         templateUrl: 'client/landing/landing.ng.html'})
+         templateUrl: 'client/landing/landing.ng.html',
+         controller: 'HomeController'
+        })
    
       .state('registerUser', {
         url: '/user/register/:groupId',
