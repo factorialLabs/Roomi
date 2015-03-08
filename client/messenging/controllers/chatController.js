@@ -3,7 +3,7 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
     $scope.user = $meteor.collection(Meteor.users, false).subscribe('users');
         console.log($scope.users);
     $scope.messages = $meteor.collection(function() {
-      return Conversation.find({_id:$scope.user.group.conversationId}, {
+      return Conversation.find({}, {
         sort : $scope.getReactively('sort')
       });
     });
