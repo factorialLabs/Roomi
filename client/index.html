@@ -4,8 +4,8 @@
 </head>
 <body>
 	<nav>
-		
-	    <div class="nav-wrapper teal">
+
+		<div class="nav-wrapper teal" ng-controller = "IndexController">
 			<a href="#!" class="brand-logo">Roomi</a>
 			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 			<ul class="right hide-on-med-and-down ">
@@ -15,20 +15,25 @@
 				<li><a href="#">Todo</a></li>
 				<li><a href="#">Schedule</a></li>
 			</ul>
-			<ul class="side-nav" id="mobile-demo">
+			<ul class="side-nav collection" id="mobile-demo">
 				<div class = "profile">
-					<img src = "https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/user.png">
+					<img src = "https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/128/user.png" style = "float:left;">
+					<h6 ng-bind = "status"></h6>
+					<br>
+					<br>
 					<h3>Yuwei Xu</h3>
 				</div>
 				<li><meteor-include src="loginButtons"></meteor-include></li>
-				<li><a href="/">Home</a></li>
-				<li><a href="#">Bills</a></li>
+				<li><a href="/">Home<span class="new badge" ng-bind="home"></span></a></li>
+				<li><a href="#">Bills<span class="new badge" ng-bind="bills"></span></a></li>
 				<li><a href="#">Messages</a></li>
 				<li><a href="#">Todo</a></li>
 				<li><a href="#">Schedule</a></li>
 			</ul>
 			
 	    </div>
+
+	    
 	
 	</nav>
 
