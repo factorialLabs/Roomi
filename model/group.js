@@ -8,12 +8,13 @@ Meteor.methods({
         }
 
         Group.insert({name: groupInfo.name, description: groupInfo.description},
-        function(err,group){}
+        function(err,group){
             if(!err){
                 //automatically associate  current user to the group
                 Meteor.users.update(Meteor.userId(), { $set: { group: group }});
             }
-  },
+        })
+    },
     join_group: function (groupId) {
         check(groupId, String);
         if (!this.userId)
