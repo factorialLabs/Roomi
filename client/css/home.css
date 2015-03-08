@@ -1,0 +1,7 @@
+
+/*taking out the duplicate buttons that materialize has */
+@media (min-width: 960px){
+	#mobile-demo{
+		display: none;
+	}
+}

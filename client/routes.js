@@ -1,3 +1,4 @@
+
 angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
   function($urlRouterProvider, $stateProvider, $locationProvider){
 
