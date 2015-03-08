@@ -5,6 +5,7 @@ section.messages{
 section.messages h3{
     text-align: center;
 }
+<<<<<<< HEAD
 .brand-logo{
     height:90%;
     width:auto;
@@ -14,7 +15,8 @@ section.messages h3{
     height:100%;
     width:auto;
 }
-.msgs{
+
+.msg{
     width: auto;
     height: auto;
     background-color: #009688;
@@ -22,7 +24,7 @@ section.messages h3{
     border-radius: 5px;
 }
 #chat_box{
-    max-height: 65vh;
+    max-height: 60vh;
     overflow-y: scroll;
 }
 .bubble_user{

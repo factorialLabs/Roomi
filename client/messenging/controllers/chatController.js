@@ -16,7 +16,7 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
                     if(msg.user == data.user._id){
                             return {
                                 isUser:true,
-                                userName : data.user.emails[0].address
+                                userName : data.user.profile.name
                             };
                     }
                     else{
@@ -24,7 +24,7 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
                             if(msg.user == members[j]._id){
                                 return {
                                         isUser:false,
-                                        userName : members[j].emails[0].address
+                                        userName : members[j].profile.name
                                 };
                             }
                         }
