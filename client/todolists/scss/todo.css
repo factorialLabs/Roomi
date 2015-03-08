@@ -1,0 +1,24 @@
+/* line 1, C:/Users/YuChen/Dropbox/Projects/Web/Roomi/client/todolists/scss/todo.scss */
+section.todo {
+  text-align: center; }
+
+/* line 5, C:/Users/YuChen/Dropbox/Projects/Web/Roomi/client/todolists/scss/todo.scss */
+section.todo input {
+  color: black; }
+
+/* line 9, C:/Users/YuChen/Dropbox/Projects/Web/Roomi/client/todolists/scss/todo.scss */
+section.todo span.new.badge {
+  width: 60px;
+  background-color: white;
+  color: #009688; }
+
+/* line 15, C:/Users/YuChen/Dropbox/Projects/Web/Roomi/client/todolists/scss/todo.scss */
+.chat_box {
+  max-height: 20vh;
+  overflow-y: scroll; }
+
+/* line 20, C:/Users/YuChen/Dropbox/Projects/Web/Roomi/client/todolists/scss/todo.scss */
+section.todo table p {
+  color: black !important; }
+
+/*# sourceMappingURL=todo.css.map */

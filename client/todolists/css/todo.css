@@ -1,0 +1,19 @@
+section.todo {
+  text-align: center; }
+
+section.todo input {
+  color: black; }
+
+section.todo span.new.badge {
+  width: 60px;
+  background-color: white;
+  color: #009688; }
+
+.chat_box {
+  max-height: 20vh;
+  overflow-y: scroll; }
+
+section.todo table p {
+  color: black !important; }
+
+/*# sourceMappingURL=todo.css.map */

@@ -9,9 +9,26 @@ section.homepage {
   section.homepage h3 {
     margin-top: 10px;
     margin-bottom: 20px; }
-  section.homepage .card {
+  section.homepage .card-teal {
     background-color: #009688; }
-  section.homepage table.striped tbody tr:nth-child(odd) {
+  section.homepage .card-light-blue {
+    background-color: #03A9F4; }
+    section.homepage .card-cyan {
+    background-color: #00BCD4; }
+    section.homepage .card-green {
+    background-color: #4CAF50; }
+    section.homepage .card-light-green {
+    background-color: #8BC34A; }
+  section.homepage table.striped-cyan tbody tr:nth-child(odd) {
+    background-color: #0097A7; }
+  section.homepage table.striped-light-green tbody tr:nth-child(odd) {
+    background-color: #689F38; }
+    section.homepage table.striped-teal tbody tr:nth-child(odd) {
     background-color: #4DB6AC; }
+
+    label.active{
+      color: #ffffff;
+    }
+
 
 /*# sourceMappingURL=home.css.map */

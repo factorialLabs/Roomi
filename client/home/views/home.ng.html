@@ -1,10 +1,19 @@
 <section class="homepage containers">
-    <h2>Your suite, at a glance!</h2>
+    <br>
+    <div class = "row">
+        <div class = "col s12 l6 offset-l3">
+                <div class = "card card-teal">
+                    <div class = "card-content white-text">
+                        <h2>Your suite, at a glance!</h2>
+                    </div>
+                </div>
+        </div>
+    </div>
     <div class = "row">
         <div class = "col s12 l5 offset-l1">
             <div class = "row">
                 <div class = "col s12 l12">
-                    <div class="card">
+                    <div class="card card-light-blue">
                         <div class="card-content white-text">
                             <h3>Your Next Bill</h3>
                             <p>{{nextBill.date}} - {{nextBill.person}} - ${{nextBill.cost}}</p>
@@ -13,8 +22,36 @@
                 </div>
             </div>
             <div class = "row">
+                <div class = "col s12 l12" ng-controller = "ChatController">
+                    <div class = "card card-light-green white-text">
+                        <div class = "card-content">
+                            <h3>New Messages <span class="new badge" style="color:teal">{{messages[0].messages.length}}</span></h3>
+                            <table class="striped-light-green">
+                                <tr ng-repeat="msg in messages[0].messages | limitTo:-5" class="msgs">
+                                    <td>
+                                        <p><b>{{msg.message}}</b></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <form class="col s12 l12" ng-show="$root.currentUser">
+                            <div class="row" style="margin-left:9px; margin-right:20px">
+                                <div class="input-field col s12 l12 light-green darken-2 black-text">
+                                    <div class="col s11 l11">
+                                        <textarea id="textarea1" class="materialize-textarea white-text" ng-model="message"></textarea>
+                                    </div>
+                                    <div class="col s1 l1 valign-wrappe" >
+                                    <i class="medium mdi-content-send valign"  ng-click="say(message); message='';"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class = "row">
                 <div class = "col s12 l12">
-                    <div class = "card">
+                    <div class = "card card-cyan">
                         <div class = "card-content white-text">
                             <h3>Upcoming Events</h3>
                             <p>{{nextEvent.date}} - {{nextEvent.title}}</p>
@@ -22,12 +59,15 @@
                     </div>
                 </div>
             </div>
+
+        </div>
+        <div class = "col s12 l5">
             <div class = "row">
                 <div class = "col s12 l12">
-                    <div class = "card">
+                    <div class = "card card-cyan">
                         <div class = "card-content white-text">
                             <h3>Who's home?</h3>
-                            <table class="striped">
+                            <table class="striped-cyan">
                                 <tr ng-repeat="user in roommateStatus">
                                     <td>
                                         <p><b>{{user.name}}:</b> {{user.status}}</p>
@@ -38,23 +78,49 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class = "col s12 l5">
             <div class = "row">
-                <div class = "col s12 l12">
-                    <div class = "card">
+                <div class = "col s12 l12" ng-controller = "TodoController">
+                    <div class = "card card-teal">
                         <div class = "card-content white-text">
-                            <h3>New Messages <span class="new badge">{{messages.length}}</span></h3>
-                            <table class="striped">
-                                <tr ng-repeat="message in messages">
+                            <h3>To-Do List<span class="new badge">{{todos[0].todos.length}}</span></h3>
+                            <table class="striped-teal">
+                                <tr ng-repeat="todo in todos[0].todos  | limitTo:-5">
                                     <td>
-                                        <p><b>{{message.user}}:</b> {{message.message}}</p>
+                                        <p><b>{{todo.name}}:</b> {{todo.date}}</p>
                                     </td>
                                 </tr>
                             </table>
+
+                             <form class="col s12 l12" ng-show="$root.currentUser">
+                                <div class = "row">
+                                <div class="input-field col s5 white-text">
+                                    <input ng-model="todoInfo.name" id="todo_name" type="text" class="validate">
+                                    <label for="todo_name">Todo Item</label>
+                                </div>
+                                <div class="input-field col s5 white-text">
+                                    <input ng-model="todoInfo.date" id="todo_date" type="text" class="validate">
+                                    <label for="todo_date">Date</label>
+                                </div>
+                                <div class="input-field col s2">
+                                 <button ng-click="add(todoInfo); todoInfo='';" class="btn btn-primary waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="mdi-content-send right"></i>
+                                </button>
+                                </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    Current User: {{currentUser}}
+                    <!-- Current User: {{currentUser}} -->
+                </div>
+            </div>
+             <div class = "row">
+                <div class = "col s12 l12">
+                    <div class = "card card-green">
+                        <div class = "card-content white-text">
+                            <h3>Next Birthday</h3>
+                            <p>{{nextBirthday.name}}  -  {{nextEvent.date}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

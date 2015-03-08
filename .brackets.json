@@ -23,5 +23,17 @@
             "linting.collapsed": false,
             "fonts.fontSize": "16px"
         }
+    },
+    "path": {
+        "client/todolists/scss/todo.scss": {
+            "sass.enabled": true,
+            "sass.options": {
+                "outputDir": "../css/",
+                "sourceComments": false,
+                "outputStyle": "nested"
+            },
+            "linting.collapsed": false,
+            "fonts.fontSize": "16px"
+        }
     }
 }

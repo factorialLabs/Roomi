@@ -39,11 +39,17 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
       .state('registerTodolist', {
          url: '/user/todolist/:groupId',
          templateUrl: 'client/todolists/views/todolist-register.ng.html',
-         controller: 'TodolistController'})
+         controller: 'TodolistController'
+      })
       .state('chatBox', {
         url: '/chat',
         templateUrl: 'client/messenging/views/chat-box.ng.html',
         controller: 'ChatController'
+      })
+      .state('todoBox',{
+        url: '/todo',
+        templateUrl: 'client/todolists/views/todo-box.ng.html',
+        controller: 'TodoController'
       });
     $urlRouterProvider.otherwise("/");
   }]);

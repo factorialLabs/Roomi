@@ -13,6 +13,13 @@ Meteor.methods({
                 Meteor.users.update(Meteor.userId(), { $set: { 'profile.group': group }});
             }
         })
+        Todolist.insert({todos: []},
+        function(err,todolist){
+            if(!err){
+                //automatically associate  current user to the group
+                Group.update(Meteor.users.findOne(Meteor.userId()).profile.group, { $set: { todolist: todolist }});
+            }
+        })
     },
     join_group: function (groupId) {
         check(groupId, String);
