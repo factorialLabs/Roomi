@@ -1,7 +1,7 @@
-angular.module('socially',['angular-meteor', 'ui.router', 'angularUtils.directives.dirPagination']);
+angular.module('roomi',['angular-meteor', 'ui.router', 'angularUtils.directives.dirPagination']);
 
 function onReady() {
-  angular.bootstrap(document, ['socially']);
+  angular.bootstrap(document, ['roomi']);
 }
 
 if (Meteor.isCordova)

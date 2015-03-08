@@ -1,4 +1,4 @@
-angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
+angular.module("roomi").config(['$urlRouterProvider', '$stateProvider', '$locationProvider',
   function($urlRouterProvider, $stateProvider, $locationProvider){
 
     $locationProvider.html5Mode(true);
@@ -13,6 +13,11 @@ angular.module("socially").config(['$urlRouterProvider', '$stateProvider', '$loc
         url: '/parties/:partyId',
         templateUrl: 'client/parties/views/party-details.ng.html',
         controller: 'PartyDetailsCtrl'
+      })
+      .state('registerUser', {
+        url: '/user/register/:groupId',
+        templateUrl: 'client/accounts/views/user-register.ng.html',
+        controller: 'RegisterCtrl'
       });
 
     $urlRouterProvider.otherwise("/parties");

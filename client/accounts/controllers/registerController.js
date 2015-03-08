@@ -1,4 +1,4 @@
-angular.module("roomi").controller("PartiesListCtrl", ['$scope', '$meteor', '$rootScope',
+angular.module("roomi").controller("RegisterCtrl", ['$scope', '$meteor', '$rootScope',
   function($scope, $meteor, $rootScope){
 
     $scope.page = 1;
@@ -7,7 +7,7 @@ angular.module("roomi").controller("PartiesListCtrl", ['$scope', '$meteor', '$ro
     $scope.orderProperty = '1';
 
     $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
-    
+
     $scope.parties = $meteor.collection(function() {
       return Parties.find({}, {
         sort : $scope.getReactively('sort')
