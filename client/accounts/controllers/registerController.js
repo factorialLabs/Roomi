@@ -75,4 +75,15 @@ angular.module("roomi").controller("RegisterCtrl", ['$scope', '$meteor', '$rootS
             }
         );
     };
+    $scope.join_group = function(Id){
+        console.log('adding', Id);
+        $meteor.call('join_group', Id).then(
+            function(data){
+              console.log('success responding', data);
+            },
+            function(err){
+              console.log('failed', err);
+            }
+        );
+    };
 }]);
