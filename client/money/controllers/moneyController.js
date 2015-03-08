@@ -29,15 +29,12 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
             console.log($scope.groupId);
 
             $scope.getRoommates = function(){
-                console.log("Find roommates");
+                // Find roommates
                 $meteor.call("findRoommates", $scope.groupId).then(
                     function(roommates){
-                        $scope.returnedRoommates = roommates;
-                        console.log($scope.returnedRoommates);
                         $scope.roommates = [];
-                        for (var i = 0; i < $scope.returnedRoommates.length; i++){
-                            console.log($scope.returnedRoommates[i]);
-                            $scope.roommates.push(new Person($scope.returnedRoommates[i].emails[0].address, $scope.returnedRoommates._id));
+                        for (var i = 0; i < roommates.length; i++){
+                            $scope.roommates.push(new Person(roommates[i].emails[0].address, roommates[i]._id));
                         }
                         console.log($scope.roommates);
                     });
@@ -55,6 +52,49 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
 
 
     $scope.updateBalances = function(){
+        for (var i = 0; i < $scope.roommates.length; i++){
+            if ($scope.roommates[i].id != $scope.currentUser._id){
+                $meteor.call("getPayPair", $scope.currentUser._id, $scope.roommates[i].id, $scope.roommates[i].money).then(
+                function(people){
+                    console.log(people);
+                    var payer = people[0];
+                    var payee = people[1];
+                    var money = people[2];
+
+                    //Balance doesn't exist.
+                    if (!payee.profile.balance){
+                        payee.profile.balance = [{user:payer._id, balance:parseFloat(money)}];
+                        console.log(payee);
+                        $meteor.call("updateBalance", payer, payee).then(
+                        function(people){
+                            console.log(people);
+                        });
+                        return;
+                    }
+                    var index = -1;
+
+                    for (var i = 0; i < payee.profile.balance.length; i++){
+                        if (payee.profile.balance[i].user == payer._id){
+                            index = i;
+                        }
+                    }
+                    // Balance exists, this payee doesn't
+                    if (index == -1){
+                        payee.profile.balance.push({user: payer._id, balance:parseFloat(money)});
+                    }
+                    //Balance exists, payee does too.
+                    else{
+                        payee.profile.balance[index].balance += parseFloat(money);
+                    }
+                    console.log(payee);
+
+                    $meteor.call("updateBalance", payer, payee).then(
+                    function(people){
+                        console.log(people);
+                    })
+                });
+            }
+        }
 
     };
 
