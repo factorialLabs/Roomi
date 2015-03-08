@@ -5,7 +5,7 @@ section.messages{
 section.messages h3{
     text-align: center;
 }
-.msgs{
+.msg{
     width: auto;
     height: auto;
     background-color: #009688;
@@ -13,7 +13,7 @@ section.messages h3{
     border-radius: 5px;
 }
 #chat_box{
-    max-height: 65vh;
+    max-height: 60vh;
     overflow-y: scroll;
 }
 .bubble_user{
