@@ -3,15 +3,16 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
         console.log(accountService);
         accountService.then(function(data){
             console.log(data);
+            $scope.messages = $meteor.collection(function() {
+                  return Conversation.find({_id: data.group.conversationId}, {
+                    sort : $scope.getReactively('sort')
+                  });
+            });
         },function(err){
 
         });
 
-    $scope.messages = $meteor.collection(function() {
-      return Conversation.find({}, {
-        sort : $scope.getReactively('sort')
-      });
-    });
+
     //subscribe to conversations
     $meteor.autorun($scope, function() {
       $meteor.subscribe('Conversation', {

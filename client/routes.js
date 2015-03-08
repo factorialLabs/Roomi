@@ -27,7 +27,9 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         templateUrl: 'client/money/views/money.ng.html',
         controller: 'MoneyController'
       })
-
+      .state('landingPage', {
+         url: '/landing',
+         templateUrl: 'client/landing/landing.ng.html'})
    
       .state('registerUser', {
         url: '/user/register/:groupId',
