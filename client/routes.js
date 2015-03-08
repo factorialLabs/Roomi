@@ -19,7 +19,14 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
        url: '/parties/:partyId',
        templateUrl: 'client/parties/views/party-details.ng.html',
        controller: 'PartyDetailsCtrl'
-   });
+   })
 
-   $urlRouterProvider.otherwise("/");
-}]);
+   
+      .state('registerUser', {
+        url: '/user/register/:groupId',
+        templateUrl: 'client/accounts/views/user-register.ng.html',
+        controller: 'RegisterCtrl'
+      });
+    $urlRouterProvider.otherwise("/");
+  }]);
+
