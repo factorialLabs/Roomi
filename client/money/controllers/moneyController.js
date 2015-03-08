@@ -37,14 +37,17 @@ angular.module("roomi").controller("MoneyController", ['$scope', '$meteor', '$ro
                         $scope.roommates = [];
                         var balance;
                         for (var i = 0; i < roommates.length; i++){
-                            for (var j = 0; j < roommates[i].profile.balance.length; j++){
-                                if (roommates[i].profile.balance && roommates[i].profile.balance[j].user == $scope.currentUser._id){
-                                    balance = roommates[i].profile.balance[j].balance;
+                            if (roommates[i].profile.balance){
+                                for (var j = 0; j < roommates[i].profile.balance.length; j++){
+                                    if (roommates[i].profile.balance && roommates[i].profile.balance[j].user == $scope.currentUser._id){
+                                        balance = roommates[i].profile.balance[j].balance;
+                                    }
                                 }
+
                             }
-                            $scope.roommates.push(new Person(roommates[i].emails[0].address, roommates[i]._id, balance));
+                            $scope.roommates.push(new Person(roommates[i].profile.name, roommates[i]._id, balance));
                         }
-                        //console.log($scope.roommates);
+                        console.log($scope.roommates);
                     });
 
             };
