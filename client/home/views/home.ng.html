@@ -15,7 +15,7 @@
                 <div class = "col s12 l12" ng-controller = "ChatController">
                     <div class = "card card-light-green white-text">
                         <div class = "card-content">
-                            <h3>New Messages <span class="new badge" style="color:teal" ng-show="messages[0].messages.length">{{messages[0].messages.length}}</span></h3>
+                            <h3>New Messages <span class="badge" style="color:white" ng-show="messages[0].messages.length">{{messages[0].messages.length}}</span></h3>
                             <table class="striped-light-green">
                                 <tr ng-repeat="msg in messages[0].messages | limitTo:-5" 
                                     ng-init="userInfo=identifyUser(msg)" class="msgs">
