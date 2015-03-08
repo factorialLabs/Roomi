@@ -1,20 +1,39 @@
-<form ng-show="$root.currentUser">
-  <h2>Create a new group:</h2>
-  <label>Name</label>
-  <input ng-model="newGroup.name">
-  <label>Description</label>
-  <input ng-model="newGroup.description">
-  <label>Public</label>
-  <input type="checkbox" ng-model="newGroup.public">
-  <button ng-click="newGroup.owner=$root.currentUser._id;create_group(newGroup); newGroup='';">Add</button>
-</form>
-<form ng-show="$root.currentUser">
-  <h2>Join group:</h2>
-  <label>Gimme the ID</label>
-  <input ng-model="joinGroup.groupId">
-  <button ng-click="join_group(joinGroup.groupId); joinGroup='';">Join</button>
-</form>
-<div ng-hide="$root.currentUser || $root.loggingIn">
-  Log in to create a party!
+<div class="row" ng-show="$root.currentUser" ng-hide="groupId">
+    <div class="col s12 m6 offset-m3">
+        <div class="card center">
+            <h3>Create a new group:</h3>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input id="icon_prefix" type="text" class="validate" ng-model="newGroup.name">
+                        <label for="icon_prefix">Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="mdi-communication-phone prefix"></i>
+                        <input id="icon_telephone" type="tel" class="validate" ng-model="newGroup.description">
+                        <label for="icon_telephone">Description</label>
+                    </div>
+                    <button class="waves-effect waves-light btn" ng-click="newGroup.owner=$root.currentUser._id;create_group(newGroup); newGroup='';">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-<dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+<div class="row" ng-show="$root.currentUser" ng-show="groupId">
+    <div class="col s12 m6 offset-m3">
+        <div class="card center">
+            <h3>Join group:</h3>
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="mdi-action-account-circle prefix"></i>
+                        <input id="icon_prefix" type="text" class="validate" ng-value="groupId" ng-model="joinGroup.groupId">
+                        <label for="icon_prefix">ID</label>
+                    </div>
+                    <button class="waves-effect waves-light btn" ng-click="join_group(joinGroup.groupId); joinGroup='';">Join</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

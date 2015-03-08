@@ -4,8 +4,9 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
         accountService.then(function(data){
             //console.log(data);
             $scope.messages = $meteor.collection(function() {
-                    return convo = Conversation.find({_id: data.group.conversationId}, {
+                  return Conversation.find({_id: data.group.conversationId}, {
                     sort : $scope.getReactively('sort')});
+
 
             });
             $scope.identifyUser = function(msg){
@@ -16,7 +17,7 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
                                 isUser:true,
                                 userName : data.user.emails[0].address
                             };
-                    }                
+                    }
                     else{
                         for(j in members){
                             if(msg.user === members[j].user._id){
@@ -40,7 +41,7 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
             elem.scrollTop = elem.scrollHeight;
       });
     });
-        
+
     //method called when the user says something
     $scope.say = function(message){
       $meteor.call('say', message).then(

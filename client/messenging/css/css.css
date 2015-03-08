@@ -43,7 +43,7 @@ section.messages h3{
     border-radius: 10px;
 }
 
-.bubble_other:after 
+.bubble_other:after
 {
     content: '';
     position: absolute;
