@@ -1,5 +1,7 @@
-angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope',
-  function($scope, $meteor, $rootScope){
+angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$routeParams',
+  function($scope, $meteor, $rootScope, $routeParams){
+
+    $scope.groupId = $routeParams.groupId;
 
     $scope.page = 1;
     $scope.perPage = 3;
