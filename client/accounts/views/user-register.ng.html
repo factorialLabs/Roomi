@@ -8,6 +8,12 @@
   <input type="checkbox" ng-model="newGroup.public">
   <button ng-click="newGroup.owner=$root.currentUser._id;create_group(newGroup); newGroup='';">Add</button>
 </form>
+<form ng-show="$root.currentUser">
+  <h2>Join group:</h2>
+  <label>Gimme the ID</label>
+  <input ng-model="joinGroup.groupId">
+  <button ng-click="join_group(joinGroup.groupId); joinGroup='';">Join</button>
+</form>
 <div ng-hide="$root.currentUser || $root.loggingIn">
   Log in to create a party!
 </div>
