@@ -14,6 +14,14 @@ Meteor.methods({
             }
         })
     },
+    setChecked: function (id, num) {
+        check(id, String);
+
+        var todos = Todolist.findOne(id).todos;
+        todos[num].checked = !todos[num].checked;
+        Todolist.update(id, { $set: { todos: todos }});
+
+    },
     add: function(todoInfo) {
         var group = Group.findOne(Meteor.user().profile.group);
         //Check user is login

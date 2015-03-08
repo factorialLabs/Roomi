@@ -48,6 +48,11 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         templateUrl: 'client/accounts/views/user-signin.ng.html',
         controller: 'RegisterController'
       })
+      .state('signout', {
+        url: '/logout',
+        templateUrl: 'client/accounts/views/user-signout.ng.html',
+        controller: 'RegisterController'
+      })
       .state('registerTodolist', {
          url: '/user/todolist/:groupId',
          templateUrl: 'client/todolists/views/todolist-register.ng.html',

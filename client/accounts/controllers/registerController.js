@@ -136,4 +136,10 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
         });
 
     };
+    $scope.signout = function(){
+        console.log('nogging out');
+        Meteor.logout(function(error) {
+          $state.go('home', {}, {});
+        });
+    };
 }]);
