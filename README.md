@@ -1,5 +1,5 @@
 # Roomi
-============
+
 ## The App
 Roomi is a web-app to help out roomies! We've built features to help make your lives as roommates easier.
 What does Roomi do?
