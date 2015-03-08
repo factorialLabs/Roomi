@@ -11,13 +11,28 @@ p {
   line-height: 2rem;
 }
 
+h1.banner {
+  font-size:6em;
+}
+div.button {
+  margin-top: 50px;
+}
 .button-collapse {
   color: #26a69a;
 }
+.parallax-container-small {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #80CBC4;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+
+  }
 .parallax-container {
-  padding-top: 50px;
+  padding-top: 100px;
   background-color: #80CBC4;
-  min-height: 380px;
+  min-height: 50vh;
   line-height: 0;
   height: auto;
   color: rgba(255,255,255,.9);
@@ -42,6 +57,13 @@ p {
   }
 }
 
+footer.page-footer{
+  background-color: #80CBC4;
+  color:#009688;
+}
+div .footer-container{
+  background-color: #009688;
+}
 
 .icon-block {
   padding: 0 15px;
