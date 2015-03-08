@@ -28,9 +28,9 @@ Meteor.methods({
         var group = Group.findOne(groupId);
         if (!group)
           throw new Meteor.Error(404, "No such group");
-        console.log(Meteor.user().profile.group);
-        if (_.contains(groupId, Meteor.user().profile.group))
-          throw new Meteor.Error(400, "Already in group");
+        //console.log(Meteor.user().profile.group);
+        //if (_.contains(groupId, Meteor.user().profile.group))
+        //  throw new Meteor.Error(400, "Already in group");
         //Ready to join!
         Meteor.users.update(Meteor.userId(), { $set: { 'profile.group': groupId }});
         return group;
