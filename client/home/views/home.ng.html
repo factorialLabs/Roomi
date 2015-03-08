@@ -22,18 +22,39 @@
                     </div>
                 </div>
             </div>
+            <div class = "row">
+                <div class = "col-md-12">
+                    <div class = "card">
+                        <div class = "card-content white-text">
+                            <h3>Who's home?</h3>
+                            <table class="striped">
+                                <tr ng-repeat="user in roommateStatus">
+                                    <td>
+                                        <p><b>{{user.name}}:</b> {{user.status}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class = "col-md-5">
-            <div class = "card">
-                <div class = "card-content white-text">
-                    <h3>New Messages <span class="new badge">{{messages.length}}</span></h3>
-                    <table class="striped">
-                        <tr ng-repeat="message in messages">
-                            <td>
-                                <p><b>{{message.user}}:</b> {{message.message}}</p>
-                            </td>
-                        </tr>
-                    </table>
+            <div class = "row">
+                <div class = 'col-md-12'>
+                    <div class = "card">
+                        <div class = "card-content white-text">
+                            <h3>New Messages <span class="new badge">{{messages.length}}</span></h3>
+                            <table class="striped">
+                                <tr ng-repeat="message in messages">
+                                    <td>
+                                        <p><b>{{message.user}}:</b> {{message.message}}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    Current User: {{currentUser}}
                 </div>
             </div>
 
