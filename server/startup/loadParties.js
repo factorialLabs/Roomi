@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-    ConsoleMe.enabled = true;
+   // ConsoleMe.enabled = true;
   if (Parties.find().count() === 0) {
     var parties = [
       {'name': 'Dubstep-Free Zone',
