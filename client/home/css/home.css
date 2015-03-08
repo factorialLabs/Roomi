@@ -1,17 +1,3 @@
-section.homepage {
-  text-align: center; }
-  section.homepage span.new.badge {
-    width: 60px;
-    background-color: white;
-    color: #009688; }
-  section.homepage p {
-    font-size: 1.3rem; }
-  section.homepage h3 {
-    margin-top: 10px;
-    margin-bottom: 20px; }
-  section.homepage .card {
-    background-color: #009688; }
-  section.homepage table.striped tbody tr:nth-child(odd) {
-    background-color: #4DB6AC; }
-
-/*# sourceMappingURL=home.css.map */
+section.homepage{
+    text-align: center;
+}
