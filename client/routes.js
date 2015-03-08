@@ -6,6 +6,7 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
 
    $stateProvider
        .state('home', {
+      
         url: '/',
        templateUrl:'client/home/views/home.ng.html',
        controller:'HomeController'
