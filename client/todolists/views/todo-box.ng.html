@@ -3,7 +3,7 @@
         <div class = "col s12 l10 offset-l1">
             <h3>To-Do List <span class="new badge" style="color:teal" ng-show="todos[0].todos">{{todos[0].todos.length}}</span></h3>
             <div class = "card">
-                <div class = "card-content">
+                <div class = "card-content" id = "todo_box">
                     <table class="striped">
                         <tr ng-repeat="todo in todos[0].todos" class="msgs">
                             <td>

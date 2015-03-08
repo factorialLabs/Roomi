@@ -9,9 +9,10 @@ section.todo span.new.badge {
   background-color: white;
   color: #009688; }
 
-.chat_box {
-  max-height: 20vh;
-  overflow-y: scroll; }
+#todo_box{
+    max-height: 64vh;
+    overflow-y: scroll;
+}
 
 section.todo table p {
   color: black !important; }
