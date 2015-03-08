@@ -8,7 +8,7 @@ elem.scrollTop = elem.scrollHeight;
 <section class="messages container">
     <div class = "row">
         <div class = "col s12 l8 offset-l2">
-            <h4>Messages <span class="badge msg">{{messages[0].messages.length}} messages</span></h4>
+            <h3>Messages <span class="badge msg">{{messages[0].messages.length}} messages</span></h3>
             <div class = "card big_screen">
                 <div class = "card-content" id="chat_box">
                     <div ng-repeat="msg in messages[0].messages"
@@ -55,21 +55,21 @@ elem.scrollTop = elem.scrollHeight;
                             <p class="time">{{msg.time | date:'hh:mma'}}</p>
                         </div>
                     </div>
+
                 </div>
                 <form class="col s12 l12 small_form" ng-show="$root.currentUser">
                     <div class="row" style="margin-bottom:0">
                         <div class="input-field col s12 l12  teal lighten-5 black-text">
-                            <div class="col s11 l11 no_padding">
+                            <div class="col s11 l11">
                                 <textarea id="textarea1" class="materialize-textarea" ng-model="message"></textarea>
                             </div>
                             <div class="col s1 l1 valign-wrappe">
-                                <i class="medium mdi-content-send valign"  ng-click="say(message); message='';"></i>
+                                <i class=" medium mdi-content-send valign"  ng-click="say(message); message='';"></i>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
     </div>
 </section>

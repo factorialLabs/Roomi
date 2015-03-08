@@ -15,6 +15,9 @@ section.messages{
 #textarea1{
     font-size: 1.3em;
 }
+section.messages h3{
+    text-align: center;
+}
 .brand-logo{
     height:90%;
     width:auto;
@@ -24,9 +27,7 @@ section.messages{
     height:100%;
     width:auto;
 }
-section.messages h4{
-    text-align: center;
-}
+
 .msg{
     width: auto;
     height: auto;
@@ -136,7 +137,7 @@ section.messages h4{
     }
     #small_chat_box{
         left: 0px;
-        max-height: 75vh;
+        max-height: 72vh;
         width: 100vw;
         margin-left: 0px;
         margin-right: 0px;
@@ -147,5 +148,3 @@ section.messages h4{
         color:#606060!important;
     }
 }
-
-
