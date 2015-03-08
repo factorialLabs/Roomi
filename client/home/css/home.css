@@ -64,6 +64,11 @@ section.homepage .input-field input[type=text]:focus {
 section.homepage textarea.materialize-textarea:focus{
     border-bottom-color: white;
 }
+
+.collection{
+    margin: 0 !important;
+}
+
 .other{
     margin-right: 9px!important;
     margin-left: 9px!important;
