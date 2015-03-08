@@ -1,5 +1,5 @@
-angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$stateParams', '$state','accountService',
-  function($scope, $meteor, $rootScope, $stateParams, $state, accountService){
+angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$stateParams', '$state','accountService', '$window',
+  function($scope, $meteor, $rootScope, $stateParams, $state, accountService, $window){
       //Use stateParams for UI-Router
     $scope.groupId = $stateParams.groupId;
     console.log($scope.groupId);
@@ -129,7 +129,8 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
          function(err){
             if(!err){
                 //redirect
-                $state.go('home', {}, {});
+                //$state.go('home', {}, {});
+                window.location.assign('/');
             }else{
                 alert(err);
             }
@@ -139,7 +140,8 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
     $scope.signout = function(){
         console.log('lnogging out');
         Meteor.logout(function(error) {
-          $state.go('landingPage', {}, {});
+         // $state.go('landingPage', {}, {});
+            window.location.assign('/');
         });
     };
 }]);
