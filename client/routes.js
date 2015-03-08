@@ -43,6 +43,11 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         url: '/chat',
         templateUrl: 'client/messenging/views/chat-box.ng.html',
         controller: 'ChatController'
+      })
+      .state('todoBox',{
+        url: '/todo',
+        templateUrl: 'client/todolists/views/todo-box.ng.html',
+        controller: 'TodoController'
       });
     $urlRouterProvider.otherwise("/");
   }]);
