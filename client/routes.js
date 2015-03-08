@@ -33,6 +33,11 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         url: '/user/register/:groupId',
         templateUrl: 'client/accounts/views/user-register.ng.html',
         controller: 'RegisterCtrl'
+      })
+      .state('chatBox', {
+        url: '/chat',
+        templateUrl: 'client/messenging/views/chat-box.ng.html',
+        controller: 'ChatCtrl'
       });
     $urlRouterProvider.otherwise("/");
   }]);
