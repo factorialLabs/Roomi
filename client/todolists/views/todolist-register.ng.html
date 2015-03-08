@@ -1,0 +1,10 @@
+<form ng-show="$root.currentUser">
+  <h2>Create a new todolist:</h2>
+  <label>Name</label>
+  <input ng-model="newTodolist.name">
+  <label>Checked</label>
+  <input ng-model="newTodolist.checked">
+  <label>Date</label>
+   <input ng-model="newTodolist.date">
+  <button ng-click="create_todolist(newTodolist); newTodolist='';">Add</button>
+</form>

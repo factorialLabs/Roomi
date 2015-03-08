@@ -11,6 +11,7 @@ Meteor.methods({
         function(err,group){
             if(!err){
                 //automatically associate  current user to the group
+                console.log(Meteor.userId());
                 Meteor.users.update(Meteor.userId(), { $set: { group: group }});
             }
         })

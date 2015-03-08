@@ -28,7 +28,12 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         url: '/user/register/:groupId',
         templateUrl: 'client/accounts/views/user-register.ng.html',
         controller: 'RegisterCtrl'
-      });
+      })
+      .state('registerTodolist', {
+         url: '/user/todolist/:groupId',
+         templateUrl: 'client/todolists/views/todolist-register.ng.html',
+         controller: 'TodolistController'});
+         
     $urlRouterProvider.otherwise("/");
   }]);
 

@@ -86,4 +86,16 @@ angular.module("roomi").controller("RegisterCtrl", ['$scope', '$meteor', '$rootS
             }
         );
     };
+
+    $scope.create_todolist = function(newTodolist){
+        console.log('adding', newTodolist);
+        $meteor.call('create_todolist', newTodolist).then(
+            function(data){
+              console.log('success responding', data);
+            },
+            function(err){
+              console.log('failed', err);
+            }
+        );
+    };
 }]);
