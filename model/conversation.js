@@ -36,13 +36,10 @@ Meteor.methods({
         //Get the conversation in the group
         var convoId;
         var conversation = [];
-        //var messages= [];
         if(group.conversationId){
-            console.log("got an convo");
             convoId = group.conversationId;
             conversation = Conversation.findOne(convoId);
         }
-        console.log(conversation);
 
 
         var message = {
@@ -50,9 +47,10 @@ Meteor.methods({
             message:msg,
             time: new Date()
         }
+        
+        var messages= [];
         //conversation is empty. Create a convo and create message and publish
         if(!group.conversationId){
-            console.log("convo is empty");
             var new_conversation = {
                 messages: []
             }
@@ -63,26 +61,22 @@ Meteor.methods({
 
         }
         else{
-            console.log("convo is not empty");
-            console.log(conversation);
-            console.log(convoId);
-            //console.log(message);
             if(!conversation.messages){
-                console.log("message is empty")
                 messages = [];
             }
+            else{
+                messages = conversation.messages;
+            }
             messages.push(message);
-            console.log(messages);
             Conversation.update(
                 convoId,
-                {$set:{"messages":messages}}
+                {$set:{messages:messages}}
             );
             
         }
     },
     retrieve:function(){
         //check(Meteor.user().group, String);
-        console.log(Meteor.user().group);
         //Find the group by using the groupId
         //Need to verify if the Group variable is accessible
         var group = Group.findOne(Meteor.user().group);
