@@ -1,4 +1,4 @@
-Conversation = new Mongo.Collecttion("conversation");
+Conversation = new Meteor.Collection("Conversation");
 
 Conversation.allow({
     insert:function(userId, group){
@@ -19,7 +19,7 @@ Meteor.methods({
         check(groupId, String);
         //Find the group by using the groupId
         var group = Group.findOne(groupId);
-        
+
         //Check if there is a message
         if(!msg)
             throw new Meteor.Error(404, "There is no message");
@@ -32,11 +32,11 @@ Meteor.methods({
         //Check if the user is in the group
         if(this.userId.group !== group)
             throw new Meteor.Error(400, "You are not in the group");
-        
+
         //Get the conversation in the group
         var convoId = group.conversationId;
         var conversation = Conversation.findeOne(convoId);
-        
+
         var message = {
             user:this.userId,
             message:msg,
@@ -72,10 +72,10 @@ Meteor.methods({
         //Check if the user is in the group
         if(this.userId.group !== group)
             throw new Meteor.Error(400, "You are not in the group");
-        
+
         var convoId = group.conversationId;
         var conversation = Conversation.findeOne(convoId);
-        
+
         return conversation;
     }
 });
