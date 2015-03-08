@@ -3,6 +3,9 @@ angular.module("roomi").factory('accountService', ['$rootScope', '$meteor', '$q'
     return $q(function(resolve, reject) {
         $rootScope.currentUserPromise.then(function(user){
             console.log(user);
+            if (user == null){
+                reject();
+            }
             $meteor.call("findGroup", user.profile.group).then(
                 function(group){
                     var members = Meteor.users.find({'profile.group':user.profile.group}).fetch();
