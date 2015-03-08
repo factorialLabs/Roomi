@@ -1,5 +1,5 @@
-angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$stateParams', '$state',
-  function($scope, $meteor, $rootScope, $stateParams, $state){
+angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '$rootScope', '$stateParams', '$state','accountService',
+  function($scope, $meteor, $rootScope, $stateParams, $state, accountService){
       //Use stateParams for UI-Router
     $scope.groupId = $stateParams.groupId;
     console.log($scope.groupId);
@@ -7,7 +7,11 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
     $scope.perPage = 3;
     $scope.sort = { name: 1 };
     $scope.orderProperty = '1';
+    accountService.then(function(data){
+        console.log(data);
+    $scope.data = data;
 
+        });
     $scope.users = $meteor.collection(Meteor.users, false).subscribe('users');
 
     $scope.parties = $meteor.collection(function() {

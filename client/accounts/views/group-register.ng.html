@@ -1,4 +1,15 @@
 <section class = "group container-fluid">
+    <div class="row" ng-show="$root.currentUser.profile.group" ng-hide="groupId">
+        <div class="col s12 m6 offset-m3">
+            <div class="card center">
+                    <h3>My roommates</h3>
+                    <h5>in {{data.group.name}}</h5>
+                    <h4 ng-repeat="person in data.members">
+                        {{person.profile.name}}
+                    </h4>
+                </div>
+        </div>
+    </div>
     <div class="row" ng-show="$root.currentUser" ng-hide="groupId">
         <div class="col s12 m6 offset-m3">
             <div class="card center">
