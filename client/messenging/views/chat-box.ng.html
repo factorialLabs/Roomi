@@ -1,14 +1,22 @@
 <link rel="stylesheet" type="../css" href="css.css" media="screen" />
+<!--<script>
+    window.onload=function(){
+        var elem = document.getElementById('chat_box');
+        elem.scrollTop = elem.scrollHeight;
+    };
+</script>-->
 <section class="homepage container">
     <div class = "row">
         <div class = "col s12 l10 offset-l1">
             <h3>New Messages <span class="new badge" style="color:red">{{messages[0].messages.length}}</span></h3>
             <div class = "card white-text">
-                <div class = "card-content  chat_box">
+                <div class = "card-content " id="chat_box">
                     <table class="striped">
-                        <tr ng-repeat="msg in messages[0].messages" class="msgs">
+                        <tr ng-repeat="msg in messages[0].messages"  
+                            ng-init="userInfo=identifyUser(msg)">
                             <td>
-                                <p><b>{{msg.message}}</b></p>
+                                <p><b>{{userInfo.userName}}</b></p>
+                                <p>{{msg.message}}</p>
                             </td>
                         </tr>
                     </table>
@@ -28,5 +36,4 @@
             </div>
         </div>
     </div>
-    Current User: {{currentUser}}
 </section>
