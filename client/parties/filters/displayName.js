@@ -1,4 +1,4 @@
-angular.module("socially").filter('displayName', function () {
+angular.module("roomi").filter('displayName', function () {
   return function (user) {
     if (!user)
       return;

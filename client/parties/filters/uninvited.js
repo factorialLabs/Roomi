@@ -1,4 +1,4 @@
-angular.module("socially").filter('uninvited', function () {
+angular.module("roomi").filter('uninvited', function () {
   return function (users, party) {
     if (!party)
       return false;

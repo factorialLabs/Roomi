@@ -1,4 +1,4 @@
-angular.module("socially").controller("PartiesListCtrl", ['$scope', '$meteor', '$rootScope',
+angular.module("roomi").controller("PartiesListCtrl", ['$scope', '$meteor', '$rootScope',
   function($scope, $meteor, $rootScope){
 
     $scope.page = 1;
