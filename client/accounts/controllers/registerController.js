@@ -100,4 +100,12 @@ angular.module("roomi").controller("RegisterController", ['$scope', '$meteor', '
             }
         );
     };
+    $scope.create_user = function(user){
+        console.log('adding', user);
+        Accounts.createUser({
+            email: user.email,
+            password: user.password,
+            'profile.name': user.name
+        });
+    };
 }]);

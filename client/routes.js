@@ -36,6 +36,11 @@ function($urlRouterProvider, $stateProvider, $locationProvider){
         templateUrl: 'client/accounts/views/user-register.ng.html',
         controller: 'RegisterController'
       })
+      .state('registerGroup', {
+        url: '/group/register/:groupId',
+        templateUrl: 'client/accounts/views/group-register.ng.html',
+        controller: 'RegisterController'
+      })
       .state('registerTodolist', {
          url: '/user/todolist/:groupId',
          templateUrl: 'client/todolists/views/todolist-register.ng.html',
