@@ -8,3 +8,4 @@ Meteor.users.allow({
         return doc._id === userId; // can update their own profile
     }
 });
+
