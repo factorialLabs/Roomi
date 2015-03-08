@@ -1,4 +1,3 @@
-
 section.homepage{
     text-align: center;
 
@@ -25,4 +24,35 @@ section.homepage{
         background-color: #4DB6AC;
     }
 
+    .card-teal {
+        background-color: #009688; }
+    .card-light-blue {
+        background-color: #03A9F4; }
+    .card-cyan {
+        background-color: #00BCD4; }
+    .card-green {
+        background-color: #4CAF50; }
+    .card-light-green {
+        background-color: #8BC34A; }
+    table.striped-cyan tbody tr:nth-child(odd) {
+        background-color: #0097A7; }
+    table.striped-light-green tbody tr:nth-child(odd) {
+        background-color: #689F38; }
+    table.striped-teal tbody tr:nth-child(odd) {
+        background-color: #4DB6AC; }
+
+    label.active{
+        color: #ffffff;
+    }
+
+    .card-teal{
+        .input-field{
+            border-bottom-color: white;
+            box-shadow: white;
+        }
+        label{
+            color: white;
+        }
+    }
 }
+
