@@ -3,12 +3,12 @@
         <section class = "col m3 roommates">
             <h2 class = "section-header">Roommates</h2>
             <div class = "roommate card-panel" ng-repeat="person in roommates track by $index">
-                <div class = "regular-display-card" ng-hide="person.isEditing">
+                <div class = "regular-display-card">
                     <div class = "roommate row">
                         <div class = "roommate col-xs-8 col-md-8">
                             <p class = "roommate-name">{{person.name}} - ${{person.money}}
                             </p>
-                            <p class = "roommate-balance" ng-show="person.balance">Balance: ${{person.balance}}</p>
+                            <p class = "roommate-balance" ng-show="person.balance" ng-hide="person.id == currentUser._id">Balance: ${{person.balance}}</p>
                             <p class = "roommate-balance" ng-hide="person.balance">No balance!</p>
                         </div>
                     </div>

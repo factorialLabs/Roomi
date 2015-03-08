@@ -1,18 +1,18 @@
 angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$rootScope','accountService',
     function($scope, $meteor, $rootScope, accountService){
-        //console.log(accountService);
+
         accountService.then(function(data){
-            //console.log(data);
             $scope.messages = $meteor.collection(function() {
                   return Conversation.find({_id: data.group.conversationId}, {
                     sort : $scope.getReactively('sort')});
 
 
             });
+
             $scope.identifyUser = function(msg){
                 var members = data.members;
                 for(i in members){
-                    if(msg.user === data.user._id){
+                    if(msg.user == data.user._id){
                             return {
                                 isUser:true,
                                 userName : data.user.emails[0].address
@@ -20,10 +20,10 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
                     }
                     else{
                         for(j in members){
-                            if(msg.user === members[j].user._id){
+                            if(msg.user == members[j]._id){
                                 return {
                                         isUser:false,
-                                        userName : members[j].user.emails[0].address
+                                        userName : members[j].emails[0].address
                                 };
                             }
                         }
@@ -31,7 +31,7 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
                 }
             }
         },function(err){
-        });
+    });
     //subscribe to conversations
     $meteor.autorun($scope, function() {
       $meteor.subscribe('Conversation', {

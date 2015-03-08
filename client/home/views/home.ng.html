@@ -25,7 +25,7 @@
                 <div class = "col s12 l12" ng-controller = "ChatController">
                     <div class = "card card-light-green white-text">
                         <div class = "card-content">
-                            <h3>New Messages <span class="new badge" style="color:teal">{{messages[0].messages.length}}</span></h3>
+                            <h3>New Messages <span class="new badge" style="color:teal" ng-show="messages[0].messages.length">{{messages[0].messages.length}}</span></h3>
                             <table class="striped-light-green">
                                 <tr ng-repeat="msg in messages[0].messages | limitTo:-5" class="msgs">
                                     <td>
@@ -82,7 +82,7 @@
                 <div class = "col s12 l12" ng-controller = "TodoController">
                     <div class = "card card-teal">
                         <div class = "card-content white-text">
-                            <h3>To-Do List<span class="new badge">{{todos[0].todos.length}}</span></h3>
+                            <h3>To-Do List<span class="new badge" ng-show="todos[0].todos.length">{{todos[0].todos.length}}</span></h3>
                             <table class="striped-teal">
                                 <tr ng-repeat="todo in todos[0].todos  | limitTo:-5">
                                     <td>
