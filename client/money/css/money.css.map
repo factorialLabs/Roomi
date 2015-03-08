@@ -1,0 +1,11 @@
+{
+  "version": 3,
+  "file": "money.css",
+  "sources": [
+    "money.scss"
+  ],
+  "sourcesContent": [],
+  "mappings": "AAAA,AAAO,AACH,AAAY,AAAhB,AAAO,AAAc,AAAW,AAAK,AAAI,AAEjC,AAAkB,AAE1B,AAAO,AAAc,AAAE,AAAS,AAEpB,AAAQ,AACR,AAAe,AAC3B,AAAO,AAAc,AAAE,AAAS,AAEpB,AAAS,AACrB,AAAO,AAAc,AAAE,AAAS,AAEpB,AAAM",
+  "names": [],
+  "sourceRoot": "../scss/"
+}

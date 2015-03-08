@@ -1,0 +1,18 @@
+section.transactions{
+    text-align: center;
+    .btn-group label.btn.active{
+        background-color: #80CBC4;
+    }
+    td.buttons{
+        div{
+            display:inline-block;
+            padding-right: 5px;
+        }
+        a{
+            display: inline-block;
+        }
+        .edit-buttons{
+            float:right;
+        }
+    }
+}

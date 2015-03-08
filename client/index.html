@@ -1,14 +1,18 @@
 <head>
   <base href="/">
+
+  <link rel="stylesheet" href="css/home.css">
+    <link rel = "stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
 </head>
 <body>
 	<nav>
 		<div class="nav-wrapper teal" ng-controller = "IndexController">
-			<a href="#!" class="brand-logo">Roomi</a>
-			<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+			<a href="/#!" class="brand-logo">Roomi</a>
+			<a href="/#!" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 			<ul class="right hide-on-med-and-down ">
 				<li><meteor-include src="loginButtons"></meteor-include></li>
-				<li><a href="#">Bills</a></li>
+				<li><a href="/transactions">Bills</a></li>
 				<li><a href="#">Messages</a></li>
 				<li><a href="#">Todo</a></li>
 				<li><a href="#">Schedule</a></li>
@@ -23,7 +27,7 @@
 				</div>
 				<li><meteor-include src="loginButtons"></meteor-include></li>
 				<li><a href="/">Home<span class="new badge" ng-bind="home"></span></a></li>
-				<li><a href="#">Bills<span class="new badge" ng-bind="bills"></span></a></li>
+				<li><a href="/transactions">Bills<span class="new badge" ng-bind="bills"></span></a></li>
 				<li><a href="#">Messages</a></li>
 				<li><a href="#">Todo</a></li>
 				<li><a href="#">Schedule</a></li>
