@@ -49,6 +49,8 @@ angular.module("roomi").controller("ChatController", ['$scope', '$meteor', '$roo
         function(data){
             var elem = document.getElementById('chat_box');
             elem.scrollTop = elem.scrollHeight;
+            var elem2 = document.getElementById('small_chat_box');
+            elem2.scrollTop = elem2.scrollHeight;
           console.log('success responding', data);
         },
         function(err){
